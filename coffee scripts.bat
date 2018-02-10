@@ -1,0 +1,1 @@
+C:\Users\Chris\AppData\Roaming\npm\coffee -cwm public/javascripts/
