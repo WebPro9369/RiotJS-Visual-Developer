@@ -1,0 +1,1 @@
+C:\Users\Admin\AppData\Roaming\npm\gulp
