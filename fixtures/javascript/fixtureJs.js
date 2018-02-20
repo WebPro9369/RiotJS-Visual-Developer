@@ -1,0 +1,1 @@
+fixture.base = 'fixtures/html'
