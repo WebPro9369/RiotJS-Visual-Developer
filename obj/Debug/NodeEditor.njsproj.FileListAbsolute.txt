@@ -1,0 +1,2 @@
+C:\Users\Chris\Documents\GitHub\visual-developer\obj\Debug\NodeEditor.njsprojResolveAssemblyReference.cache
+C:\Users\Chris\Documents\GitHub\visual-developer\bin\Microsoft.NodejsTools.WebRole.dll
