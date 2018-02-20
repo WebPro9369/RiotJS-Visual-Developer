@@ -1,0 +1,42 @@
+[x = 4]
+[print x]
+[go]
+ n   4
+[y = x]
+[loop 3]
+   4              5              6
+  [y += 1]       [y += 1]       [y += 1]
+  [r = 3]        [r = 3]        [r = 3]
+         5   3          6   3          7   3
+  [print y + r]  [print y + r]  [print y + r]
+
+[go]
+[x = y]
+[go]
+
+
+
+
+
+
+[x = 4]
+[print x]
+[go]
+[y = x]
+[loop 3]
+  [y += 1]       ...  [y += 1]
+  [r = 3]        ...  [r = 3]
+  [print y + r]  ...  [print y + r]
+
+[go]
+[x = y]
+[go]
+
+[def go()]
+  [do]
+  [da]
+
+[go]
+              [do]
+              [da]
+              
