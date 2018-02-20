@@ -1,0 +1,42 @@
+doctype 1.1
+html(xmlns='http://www.w3.org/1999/xhtml')
+head
+  include includes/styles
+
+body
+  
+  //- manually attach allowOverflow method to pane
+  .ui-layout-north(onmouseover="myLayout.allowOverflow('north')", onmouseout='myLayout.resetOverflow(this)')
+
+
+  .ui-layout-west
+
+  .ui-layout-south
+
+  .ui-layout-east
+
+  .ui-layout-center
+    workspace
+    
+    
+  //- load external javascripts
+  include includes/external-libraries
+ 
+  //- load local javascripts
+  - rnd = Math.random()
+  //- script(type='text/javascript', src='/javascripts/layout.js')
+
+  //- load customize-sortable file
+  include includes/custom-scripts
+ 
+  //- load riot components
+  script(type="text/javascript" ,src="/components/components.js?#{rnd}")
+
+
+  script
+    :coffee-script
+      riot.settings.autoUpdate = false
+      scriptModel.getBloqData (script, toolbox)->
+        riot.mount "workspace",
+          script: script
+          toolbox: toolbox
