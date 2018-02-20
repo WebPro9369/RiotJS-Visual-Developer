@@ -1,0 +1,147 @@
+doctype 1.1
+html(xmlns='http://www.w3.org/1999/xhtml')
+head
+  include ../includes/styles
+  link(rel='stylesheet', href='/prototype/style.css')
+
+      
+body
+  
+  //- manually attach allowOverflow method to pane
+  .ui-layout-north(onmouseover="myLayout.allowOverflow('north')", onmouseout='myLayout.resetOverflow(this)')
+
+
+  .ui-layout-west
+
+  .ui-layout-south
+
+  .ui-layout-east
+
+  .ui-layout-center
+
+    toolbox
+      bloq-toolbox.command(block="print")
+        div.command-header.dragg-handler
+          span print
+      bloq-toolbox.command(block="for" haschildren="true")
+        div.command-header.dragg-handler
+          span for
+
+    visual-script-editor
+      bloq-list.root(root='true')
+        bloq.command(contenteditable='false', block='print')
+          .command-header.dragg-handler
+            span.bloq-title print
+            span.editIcon
+              a.btn-flat.waves-effect.waves-tea.redEditButton
+                i.material-icons edit 
+          .command-body
+            parameter(name='text', value='hello')
+              label text
+              .string-box.content-editable-div.sortable-item(contenteditable='false')
+                span hello
+        bloq.command(contenteditable='false', block='for', haschildren='true')
+          .command-header.dragg-handler
+            span.bloq-title for
+            span.editIcon
+              a.btn-flat.waves-effect.waves-tea.redEditButton
+                i.material-icons edit 
+          .command-body
+            parameter(name='index', value='i')
+              label index
+              .string-box.content-editable-div.sortable-item(contenteditable='false')
+                span i
+            parameter(name='sequence', value='range(1, 10)')
+              label sequence
+              .string-box.content-editable-div.sortable-item(contenteditable='false')
+                span range(1,
+                span 10)
+          bloq-list
+            bloq.command(contenteditable='false', block='print')
+              .command-header.dragg-handler
+                span.bloq-title print
+                span.editIcon
+                  a.btn-flat.waves-effect.waves-tea.redEditButton
+                    i.material-icons edit 
+              .command-body
+                parameter(name='text', value='2 text spaced text')
+                  label text
+                  .string-box.content-editable-div.sortable-item(contenteditable='false')
+                    span 2
+                    span text
+                    span spaced
+                    span text
+          drop-bloq
+            .drop-bloq drop bloqs here
+      .overlay  
+      drop-bloq
+        .drop-bloq drop bloqs here
+
+        
+    
+  //- load external javascripts
+  include ../includes/external-libraries
+
+  //- load local javascripts
+  - rnd = Math.random()
+  //- script(type='text/javascript', src='/javascripts/layout.js')
+
+  //- load customize-sortable file
+  include ../includes/custom-scripts
+
+  script
+    :coffee-script
+      oldIndex = []
+      $("visual-script-editor bloq-list.root").sortable
+        itemSelector: 'bloq , .draggable-element , bloq-toolbox'
+        handle: '.dragg-handler , .draggable-element'
+        group : 'nav'
+        exclude: '.not-draggable-element ,.dragged'
+        #tolerance : -80
+        containerSelector:'bloq-list , .sortable-item'
+        placeholder: '<bloq class="placeholder"></bloq>'
+        onDragStart: ($item, container, _super) ->
+          #Duplicate items of the no drop area
+          dragContainer = container.el[0].tagName
+          if(!container.options.drop)
+            $item.clone().insertAfter($item)
+          _super $item, container
+        onDrop: ($item, container, _super) ->
+          $clonedItem = $('<bloq/>').css(height: 0)
+          #https://github.com/riot/riot/issues/934
+          $item.before $clonedItem
+          $clonedItem.animate 'height': $item.height()
+          topManipulation = 0
+          console.log container.el[0]
+          if($item.prop('tagName') == 'BLOQ-TOOLBOX')
+            hOffset =  window.pageYOffset || document.documentElement.scrollTop
+            itemTop =  parseFloat($item.css('top'))
+            topManipulation = hOffset + itemTop
+            poistionleft = $('visual-script-editor')
+                            .position()
+                            .left
+            left = parseFloat($item.css('left')) - poistionleft
+            if($(container.el[0]).hasClass('string-box'))
+              parentPosition = $(container.el[0])
+                                .closest('.draggable-element')
+                                .offset()
+              topManipulation -= parentPosition.top
+              left -= $(container.el[0])
+                        .closest '.draggable-element'
+                        .position()
+                        .left
+            $item.css 'top' , topManipulation
+            $item.css 'left', left
+          $item.animate $clonedItem.position() , ->
+            $clonedItem.detach()
+            replacedBloq = $item
+            if($item.prop('tagName') == 'BLOQ-TOOLBOX')
+              oldIndex.shift()
+            _super replacedBloq , container
+            #if placedBloq
+              #placedBloq[0].trigger("edit",true)
+            return
+          return
+      $("toolbox").sortable
+        drop  : false
+        group : 'nav'
