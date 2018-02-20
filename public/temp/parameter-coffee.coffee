@@ -1,0 +1,64 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+self = this
+
+@getParameter = =>
+  result = @refs.typedEditor.getParameter()
+  result.id = opts.model.sbid
+  return result
+  
+
+

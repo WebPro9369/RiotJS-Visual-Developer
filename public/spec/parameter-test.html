@@ -1,0 +1,28 @@
+<parameter name="param name" value="param value"></parameter><script>(function() {
+  describe('parameter', function() {
+    beforeAll(function(done) {
+      return riot.compile(function() {
+        riot.mount("parameter");
+        return done();
+      });
+    });
+    afterAll(function() {
+      return $("#sandbox").empty();
+    });
+    it('should mount', function() {
+      var element;
+      element = $("parameter");
+      return expect(element.children().length).toBeGreaterThan(0);
+    });
+    it('should have the correct name and value', function() {
+      var name, value;
+      name = $("parameter").find("label").text();
+      value = $("parameter").find(".string-box").text();
+      expect(name).toBe("param name");
+      return expect(value).toBe("param value");
+    });
+    return it('should switch into edit mode', function() {});
+  });
+
+}).call(this);
+</script>

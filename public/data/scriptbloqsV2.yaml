@@ -1,0 +1,41 @@
+define:
+  description: define a function
+  title: define @name
+  parameters:
+    - name: name
+      label: Name
+      editor: text
+    - name: parameters
+      label: Parameters
+      editor: parameterList
+
+#when testing, run all bloqs through a test to make sure they have all the correct fields. also check them for spelling and grammar.
+class:
+  description: Define an object class.
+  title: @name class
+  parameters:
+    - name: name
+      label: Name
+      editor: text
+
+property:
+  desription: An object property
+  title: @name property
+  parameters:
+    - name: name
+      label: Name
+      editor: text
+
+
+list:
+  methods:
+    add:
+      description: add an item to the list
+      parameters:
+        - name: item
+          label: What will you add?
+          editor: text
+  properties:
+    - name: items
+      label: Item
+      editor: number

@@ -1,0 +1,11 @@
+﻿
+mixin parameter(paramType, paramName)
+  case paramType
+    when "text"
+      include text-parameter
+    when "variable"
+      include variable-parameter
+
+mixin dragBlocksHere()
+  li.info-block Drag Items Here
+

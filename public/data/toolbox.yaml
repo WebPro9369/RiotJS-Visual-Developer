@@ -1,0 +1,27 @@
+- variables:
+- lists:
+- Data:
+  - set
+  - increment
+  - decrement
+  - create list
+  - add to list
+  - remove from list
+  - clear list
+  - list count
+  - list item
+  - random list item
+  - list from file
+  - list from text
+  - text from list
+  - subtract lists
+  - common list items
+  - sort list
+
+
+- Flow:
+  - repeat
+  - repeat while
+  - define
+- "My Functions":
+

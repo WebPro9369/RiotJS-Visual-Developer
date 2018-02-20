@@ -1,0 +1,40 @@
+
+list:
+  parameters:
+    - name: name
+      editor: text
+    - name: items
+      editor: list
+  output: print({{text}})
+
+set:
+  parameters:
+    - name: text
+      editor: text
+  output: print({{text}})
+
+constant:
+  parameters:
+    - name: text
+      editor: text
+  output: print({{text}})
+
+topic list:
+  parameters:
+    - name: index
+      editor: variable
+    - name: sequence
+      editor: text
+  hasChildren: true
+  output: for
+
+topic set:
+  parameters:
+    - name: index
+      editor: variable
+    - name: sequence
+      editor: text
+  hasChildren: true
+  output: for
+
+

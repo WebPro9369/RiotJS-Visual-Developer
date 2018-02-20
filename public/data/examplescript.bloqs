@@ -1,0 +1,10 @@
+print
+  "hello"
+for
+  i
+  "range(@0, @1)"
+    lownum
+    highnum
+    
+  print
+    "2 text spaced text"

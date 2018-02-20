@@ -1,0 +1,17 @@
+- bloq: variable
+  name: "varble"
+  store: variables
+- bloq: "print"
+  parameters:
+    text: 
+      value: "hello {0} what's up"
+      children:
+        - bloq: new line
+- bloq: "for"
+  parameters:
+    index: "i"
+    sequence: "range (1), (10)"
+  children: 
+    - bloq: "print"
+      parameters:
+        text: "2 text spaced text"

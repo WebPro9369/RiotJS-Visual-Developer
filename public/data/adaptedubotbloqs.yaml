@@ -1,0 +1,1921 @@
+wait:
+  description: "Waits for the specified number of seconds"
+  userlevel: free
+  category: Flow   
+  parameters:
+    - name: seconds
+      label: "Seconds To Wait:"
+      editor: text
+      
+
+repeat:
+  description: "Runs the contained functions a specified number of times"
+  userlevel: free
+  category: Flow   
+  parameters:
+    - name: cycles
+      label: "Number of repetitions:"
+      editor: text
+      
+
+repeat while:
+  description: "Runs the contained functions while a specified condition is true"
+  userlevel: free
+  category: Flow   
+  parameters:
+    - name: condition
+      label: "Condition To Wait For:"
+      editor: condition
+      
+
+if:
+  description: "Runs the contained functions if the condition is true"
+  userlevel: free
+  category: Flow   
+  parameters:
+    - name: condition
+      label: "Condition:"
+      editor: condition
+      
+
+then:
+  description: "If true, then to this"
+  userlevel: free
+  category: Flow   
+  parameters:
+
+else if:
+  description: "If not true but other condition is true, then do this"
+  userlevel: free
+  category: Flow   
+  parameters:
+    - name: condition
+      label: "Condition:"
+      editor: condition
+      
+
+else:
+  description: "If nothing else is true, then do this"
+  userlevel: free
+  category: Flow
+
+define:
+  description: "Defines a function"
+  title: define @name
+  userlevel: free
+  category: Flow   
+  parameters:
+    - name: name
+      label: "Name:"
+      editor: define
+      
+    - name: params
+      label: "Parameters:"
+      editor: parameter list
+      
+
+return:
+  description: "Return a value from a function"
+  userlevel: free
+  category: Flow   
+  parameters:
+    - name: result
+      label: "Return value:"
+      editor: text
+      
+
+import:
+  description: "Import another script."
+  userlevel: free
+  category: Flow   
+  parameters:
+    - name: file
+      label: "Select a file to import:"
+      editor: open file
+      
+
+pause script:
+  description: "Pauses the script. This is generally used for debugging"
+  userlevel: free
+  category: Flow   
+  parameters:
+
+stop script:
+  description: "Stops the script from running any further"
+  userlevel: free
+  category: Flow   
+  parameters:
+
+new line:
+  description: "Returns a line break"
+  userlevel: free
+  category: Null   
+  parameters:
+
+empty text:
+  description: "Returns empty text"
+  userlevel: free
+  category: Null   
+  parameters:
+
+replace:
+  description: "Returns the original text with all instances of the search text replaced by the replace text"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: original
+      label: "Original Text"
+      editor: text
+      
+    - name: search
+      label: "Search Text"
+      editor: text
+      
+    - name: replace
+      label: "Replace Text"
+      editor: text
+      
+
+replace regular expression:
+  description: "Returns the original text with all instances of the pattern text replaced by the replace text"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: original
+      label: "Original Text"
+      editor: text
+      
+    - name: pattern
+      label: "Pattern Text"
+      editor: text
+      
+    - name: replace
+      label: "Replace Text"
+      editor: text
+      
+
+change text casing:
+  description: "Returns the text with the casing of the text changed"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: text
+      label: "Text To Change:"
+      editor: text
+      
+    - name: casing
+      label: "Casing:"
+      editor: list box
+      
+      items:
+        - Upper Case
+        - Lower Case
+        - Proper Case
+        - Camel Case
+
+trim:
+  description: "Returns the text with all leading or trailing blank spaces removed"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: text
+      label: "Text:"
+      editor: text
+      
+
+substring:
+  description: "Returns a specified part of an original string"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: text
+      label: "Original Text:"
+      editor: text
+      
+    - name: startPoint
+      label: "Starting Point:"
+      editor: text
+      
+    - name: totalLength
+      label: "Number Of Characters:"
+      editor: text
+      
+
+random text:
+  description: "Returns a random alpha-numeric string of user defined length, including upper and lowercase letters"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: length
+      label: "Length:"
+      editor: text
+      
+
+pad text:
+  description: "Returns a new string that is padded with a character"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: text
+      label: "Original Text:"
+      editor: text
+      
+    - name: character
+      label: "Padding Character:"
+      editor: text
+      
+    - name: totalLength
+      label: "New Length After Padding:"
+      editor: text
+      
+    - name: direction
+      label: "Side To Pad:"
+      editor: list box
+      
+      items:
+        - Left
+        - Right
+
+text length:
+  description: "Returns the total length of the text"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: text
+      label: "Text:"
+      editor: text
+      
+
+insert text:
+  description: "Returns the original text with another piece of text inserted at a specified position"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: originalText
+      label: "Original Text:"
+      editor: text
+      
+    - name: textToInsert
+      label: "Text To Insert:"
+      editor: text
+      
+    - name: position
+      label: "Position To Insert Text:"
+      editor: text
+      
+
+find index:
+  description: "Returns the index of a piece of text within the original text"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: originalText
+      label: "Original Text:"
+      editor: text
+      
+    - name: textToFind
+      label: "Text To Find:"
+      editor: text
+      
+
+append line to text:
+  description: "Returns the original text with a new line of text appended to the end"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: originalText
+      label: "Original Text:"
+      editor: text
+      
+    - name: text
+      label: "Text To Append:"
+      editor: text
+      
+
+find regular expression:
+  description: "Returns a list of all matches of the regular expression in the original text"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: text
+      label: "Text:"
+      editor: text
+      
+    - name: expression
+      label: "Regular Expression:"
+      editor: text
+      
+
+random number:
+  description: "Returns a random number between the minimum and maximum values."
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: min
+      label: "Minimum Value:"
+      editor: text
+      
+    - name: max
+      label: "Maximum Value:"
+      editor: text
+      
+
+add:
+  description: "Returns the result of adding two numbers"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: left
+      label: "Left Side Value:"
+      editor: text
+      
+    - name: right
+      label: "Right Side Value:"
+      editor: text
+      
+
+subtract:
+  description: "Returns the result of subtracting two numbers"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: left
+      label: "Left Side Value:"
+      editor: text
+      
+    - name: right
+      label: "Right Side Value:"
+      editor: text
+      
+
+multiply:
+  description: "Returns the result of multiplying two numbers"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: left
+      label: "Left Side Value:"
+      editor: text
+      
+    - name: right
+      label: "Right Side Value:"
+      editor: text
+      
+
+divide:
+  description: "Returns the result of dividing two numbers"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: left
+      label: "Left Side Value:"
+      editor: text
+      
+    - name: right
+      label: "Right Side Value:"
+      editor: text
+      
+
+exponent:
+  description: "Returns the result of taking one number to a specified exponent"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: left
+      label: "Number:"
+      editor: text
+      
+    - name: right
+      label: "Exponent:"
+      editor: text
+      
+
+list count:
+  description: "Returns the total number of items in a list"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+
+list position:
+  description: "Returns the current numerical position of UBot in a list"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+
+random list item:
+  description: "Returns a randomly selected item form a list"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+
+next list item:
+  description: "Returns the list item at the list's current position, and increments the list's position."
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+
+previous list item:
+  description: "Returns the list item at the list's current position, and decrements the list's position."
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+
+list item:
+  description: "Returns the list item at the specified position"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+    - name: position
+      label: "Position:"
+      editor: text
+      
+
+read file:
+  description: "Returns the contents of a file"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: file
+      label: "File:"
+      editor: open file
+      
+
+list from file:
+  description: "Returns a list of each line in a file"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: file
+      label: "File:"
+      editor: open file
+      
+
+list from text:
+  description: "Returns a list of items by separating the text into separate items based on a delimiter"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: text
+      label: "Text:"
+      editor: text
+      
+    - name: delimiter
+      label: "Delimiter:"
+      editor: text
+      
+
+text from list:
+  description: "Returns text based on connecting each list item by a connector."
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+    - name: connector
+      label: "Connector:"
+      editor: text
+      
+
+subtract lists:
+  description: "Returns the first list with all items in the second list removed from it"
+  userlevel: professional
+  category: Null   
+  parameters:
+    - name: firstList
+      label: "List 1:"
+      editor: list
+      
+    - name: secondList
+      label: "List 2:"
+      editor: list
+      
+
+sort list:
+  description: "Returns the original list sorted in ascending or descending order"
+  userlevel: professional
+  category: Null   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+    - name: direction
+      label: "Direction:"
+      editor: list box
+      
+      items:
+        - Ascending
+        - Descending
+
+common list items:
+  description: "Returns a new list containing the common items between the first and second lists"
+  userlevel: professional
+  category: Null   
+  parameters:
+    - name: firstList
+      label: "List 1:"
+      editor: list
+      
+    - name: secondList
+      label: "List 2:"
+      editor: list
+      
+
+set:
+  description: "Set allows you to store a value in a variable"
+  userlevel: free
+  category: Data   
+  parameters:
+    - name: variable
+      label: "Variable Name:"
+      editor: variable
+      
+    - name: newValue
+      label: "New Value:"
+      editor: text
+      
+    - name: scope
+      label: "Local Or Global:"
+      editor: list box
+      advanced: True
+      items:
+        - Global
+        - Local
+
+increment:
+  description: "Adds 1 to a variable"
+  userlevel: free
+  category: Data   
+  parameters:
+    - name: variable
+      label: "Variable"
+      editor: variable
+      
+
+decrement:
+  description: "Subtracts 1 from a variable"
+  userlevel: free
+  category: Data   
+  parameters:
+    - name: variable
+      label: "Variable:"
+      editor: variable
+      
+
+add item to list:
+  description: "Adds an item to the end of a list"
+  userlevel: free
+  category: Data   
+  parameters:
+    - name: list
+      label: "List To Add To:"
+      editor: list
+      
+    - name: item
+      label: "Item To Add:"
+      editor: text
+      
+    - name: deleteDuplicates
+      label: "Delete duplicates:"
+      editor: list box
+      advanced: True
+      items:
+        - Don't Delete
+        - Delete
+    - name: scope
+      label: "List Scope:"
+      editor: list box
+      advanced: True
+      items:
+        - Global
+        - Local
+
+remove from list:
+  description: "Removes the list item at the specified position"
+  userlevel: free
+  category: Data   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+    - name: position
+      label: "Position:"
+      editor: text
+      
+
+set list position:
+  description: "Sets the position of a list which is used by $next list item"
+  userlevel: free
+  category: Data   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+    - name: position
+      label: "Position:"
+      editor: text
+      
+
+clear list:
+  description: "Empties the contents of a list and resets its list position to 0."
+  userlevel: free
+  category: Data   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+
+establish:
+  description: "Executes a function to establish that a certain condition is true, terminate bot if unsuccessful"
+  userlevel: free
+  category: Log   
+  parameters:
+    - name: establishTitle
+      label: "Establish message:"
+      editor: text
+      
+    - name: condition
+      label: "Condition to establish:"
+      editor: condition
+      
+    - name: assert
+      label: "Assert and fail if unable to establish:"
+      editor: list box
+      advanced: True
+      items:
+        - No
+        - Yes
+
+purpose:
+  description: "Set a bot's purpose"
+  userlevel: free
+  category: Log   
+  parameters:
+    - name: purpose
+      label: "Purpose:"
+      editor: text
+      
+
+activity:
+  description: "Set a bot's purpose"
+  userlevel: free
+  category: Log   
+  parameters:
+    - name: activity
+      label: "Activity:"
+      editor: text
+      
+
+log:
+  description: "Log some text"
+  userlevel: free
+  category: Log   
+  parameters:
+    - name: log
+      label: "Log:"
+      editor: text
+      
+
+section:
+  description: "Define a section."
+  userlevel: free
+  category: Log   
+  parameters:
+    - name: section
+      label: "Section:"
+      editor: text
+      
+
+describe:
+  description: "Defines a unit test suite."
+  userlevel: free
+  category:  "Unit Testing"  
+  parameters:
+    - name: what
+      label: "What are we describing?"
+      editor: text
+      
+
+it:
+  description: "Defines a unit test."
+  userlevel: free
+  category:  "Unit Testing"  
+  parameters:
+    - name: what
+      label: "What should it do?"
+      editor: text
+      
+
+expect:
+  description: "Specifies a condition for a unit test to expect"
+  userlevel: free
+  category:  "Unit Testing"  
+  parameters:
+    - name: condition
+      label: "Condition to expect:"
+      editor: condition
+      
+
+contains:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: container
+      label: "Text:"
+      editor: text
+      
+    - name: searchText
+      label: "Text To Search For:"
+      editor: text
+      
+
+exists:
+  description: "Returns whether or not an element exists on the current page"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: element
+      label: "Element To Find"
+      editor: element
+      
+
+true:
+  description: "Returns true"
+  userlevel: free
+  category: Null   
+  parameters:
+
+false:
+  description: "Returns false"
+  userlevel: free
+  category: Null   
+  parameters:
+
+both:
+  description: "Returns true if both conditions are true"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: first
+      label: "First Condition"
+      editor: condition
+      
+    - name: second
+      label: "Second Condition"
+      editor: condition
+      
+
+either:
+  description: "Returns true if either condition is true"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: first
+      label: "First Condition"
+      editor: condition
+      
+    - name: second
+      label: "Second Condition"
+      editor: condition
+      
+
+not:
+  description: "Returns true if the condition is not true"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: condition
+      label: "Condition"
+      editor: condition
+      
+
+comparison:
+  description: "Compares two values and returns the result"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: value1
+      label: "First Value:"
+      editor: text
+      
+    - name: condition
+      label: "Condition:"
+      editor: list box
+      
+      items:
+        - = Equals
+        - != Does not equal
+        - < Less than
+        - <= Less than or equal to
+        - > Greater than
+        - >= Greater than or equal to
+    - name: value2
+      label: "Second Value:"
+      editor: text
+      
+
+date:
+  description: "Returns the current date"
+  userlevel: free
+  category: Null   
+  parameters:
+
+shell:
+  description: "Runs an executable"
+  userlevel: standard
+  category: System   
+  parameters:
+    - name: file
+      label: "Executable File:"
+      editor: open file
+      
+
+divider:
+  description: "Visually divides up nodes to help the aesthetics of the script window"
+  userlevel: free
+  category: Flow   
+  parameters:
+
+comment:
+  description: "Allows you to write a comment"
+  title: @comment
+  userlevel: free
+  category: Flow   
+  parameters:
+    - name: comment
+      label: "Comment:"
+      editor: text
+      
+
+condition:
+  description: ""
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: left
+      label: "Enter the left side value:"
+      editor: text
+      
+    - name: right
+      label: "Enter the right side value:"
+      editor: text
+      
+
+comparison:
+  description: ""
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: left
+      label: "Enter the left side value:"
+      editor: text
+      
+    - name: right
+      label: "Enter the right side value:"
+      editor: text
+      
+
+save to file:
+  description: "Saves text, lists, or tables to a file."
+  userlevel: free
+  category: System   
+  parameters:
+    - name: file
+      label: "Save As:"
+      editor: save file
+      
+    - name: content
+      label: "Content To Save:"
+      editor: text
+      
+rename file:
+  description: "Renames a file"
+  userlevel: free
+  category: System   
+  parameters:
+    - name: file
+      label: "File To Rename:"
+      editor: open file
+      
+    - name: newName
+      label: "New File Name:"
+      editor: text
+      
+
+move file:
+  description: "Moves a file to a new location"
+  userlevel: free
+  category: System   
+  parameters:
+    - name: file
+      label: "File To Move:"
+      editor: open file
+      
+    - name: location
+      label: "New Location:"
+      editor: open folder
+      
+
+delete file:
+  description: "Deletes a file"
+  userlevel: free
+  category: System   
+  parameters:
+    - name: file
+      label: "File To Delete:"
+      editor: open file
+      
+
+copy file:
+  description: "Copies a file to a new location"
+  userlevel: free
+  category: System   
+  parameters:
+    - name: file
+      label: "File To Copy:"
+      editor: open file
+      
+    - name: copyTo
+      label: "Copy To Location:"
+      editor: open folder
+      
+
+rename folder:
+  description: "Renames a Folder"
+  userlevel: free
+  category: System   
+  parameters:
+    - name: folder
+      label: "Folder To Rename:"
+      editor: open folder
+      
+    - name: newName
+      label: "New Folder Name:"
+      editor: text
+      
+
+move folder:
+  description: "Moves a folder to a new location"
+  userlevel: free
+  category: System   
+  parameters:
+    - name: folder
+      label: "Folder To Move:"
+      editor: open folder
+      
+    - name: location
+      label: "New Location:"
+      editor: open folder
+      
+
+delete folder:
+  description: "Deletes a folder"
+  userlevel: free
+  category: System   
+  parameters:
+    - name: folder
+      label: "Folder to Delete:"
+      editor: open folder
+      
+
+create folder:
+  description: "Creates a new folder"
+  userlevel: free
+  category: System   
+  parameters:
+    - name: folderLocation
+      label: "New Folder Location:"
+      editor: open folder
+      
+    - name: newFolderName
+      label: "New Folder Name:"
+      editor: text
+      
+
+copy folder:
+  description: "Copies a folder to a new location"
+  userlevel: free
+  category: System   
+  parameters:
+    - name: folder
+      label: "Folder To Copy:"
+      editor: open folder
+      
+    - name: copyTo
+      label: "Copy To Location:"
+      editor: open folder
+      
+
+append to file:
+  description: "Appends text to the start or end of a file"
+  userlevel: free
+  category: System   
+  parameters:
+    - name: file
+      label: "File To Append To:"
+      editor: open file
+      
+    - name: text
+      label: "Text To Append:"
+      editor: text
+      
+    - name: whereToAppend
+      label: "Where To Append:"
+      editor: list box
+      
+      items:
+        - End
+        - Beginning
+
+get files:
+  description: "Returns a list of all files in a given directory"
+  userlevel: professional
+  category: Null   
+  parameters:
+    - name: folder
+      label: "Folder To Search:"
+      editor: open folder
+      
+    - name: includePath
+      label: "Include Path:"
+      editor: list box
+      
+      items:
+        - Yes
+        - No
+
+file exists:
+  description: "Returns whether or not a file exists."
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: file
+      label: "File To Check:"
+      editor: open file
+      
+
+folder exists:
+  description: "Returns whether or not a folder exists."
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: folder
+      label: "Folder To Check:"
+      editor: open folder
+      
+
+special folder:
+  description: "Returns the path to a special system folder"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: specialFolder
+      label: "Special Folder:"
+      editor: list box
+      
+      items:
+        - Application
+        - Application Data
+        - UBot Plugins
+        - Desktop
+        - Favorites
+        - My Documents
+        - My Music
+        - My Pictures
+        - My Videos
+        - Program Files
+        - Startup
+        - System
+
+python:
+  description: "Runs Python code."
+  userlevel: free
+  category: developer   
+  parameters:
+    - name: moduleName
+      label: "What would you like to name this module?"
+      editor: text
+      
+    - name: python
+      label: "Python:"
+      editor: code
+      
+
+python result:
+  description: "Runs Python code and returns a result."
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: moduleName
+      label: "What would you like to name this module?"
+      editor: text
+      
+    - name: python
+      label: "Python:"
+      editor: code
+      
+
+last n of list:
+  description: "Returns a list that contains only the last n items of another list"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+    - name: number
+      label: "How many?"
+      editor: text
+      
+
+first n of list:
+  description: "Returns a list that contains only the first n items of another list"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+    - name: number
+      label: "How many?"
+      editor: text
+      
+
+encrypt:
+  description: "Encrypts a value"
+  userlevel: free
+  category:  "Encryption"  
+  parameters:
+    - name: input
+      label: "Value to Encrypt"
+      editor: text
+      
+    - name: algorithm
+      label: "Cryptography Algorithm:"
+      editor: list box
+      
+      items:
+        - base64
+        - md5
+        - sha1
+        - sha256
+
+decrypt:
+  description: "Decrypts a value"
+  userlevel: free
+  category:  "Encryption"  
+  parameters:
+    - name: input
+      label: "Value to Decrypt"
+      editor: text
+      
+    - name: algorithm
+      label: "Cryptography Algorithm:"
+      editor: list box
+      
+      items:
+        - base64
+
+n seconds:
+  description: "Returns a timespan"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: number
+      label: "How many?"
+      editor: text
+      
+    - name: timeSpan
+      label: "Time Span:"
+      editor: list box
+      
+      items:
+        - Milliseconds
+        - Seconds
+        - Minutes
+        - Hours
+        - Days
+        - Weeks
+        - Years
+
+n from now:
+  description: "Returns the date/time after a given time span"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: interval
+      label: "How long from now?"
+      editor: text
+      
+
+n ago:
+  description: "Returns the date/time before the given time span"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: interval
+      label: "How long ago?"
+      editor: text
+      
+
+now:
+  description: "Returns the current date/time"
+  userlevel: free
+  category: Null   
+  parameters:
+
+alert:
+  description: "Displays an alert box to display a message to the user"
+  userlevel: free
+  category: Flow   
+  parameters:
+    - name: message
+      label: "Message:"
+      editor: text
+      
+
+confirm:
+  description: "Displays a yes/no confirmation box that returns true if they choose Yes"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: message
+      label: "Message:"
+      editor: text
+      
+
+prompt:
+  description: "Prompts the user to respond and returns the text they typed"
+  userlevel: free
+  category: Null   
+  parameters:
+    - name: message
+      label: "Message:"
+      editor: text
+      
+
+clear all data:
+  description: "Clears all variables, lists, and tables."
+  userlevel: free
+  category: Data   
+  parameters:
+
+reverse text:
+  description: "Reverses text"
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to reverse:"
+      editor: text
+      
+
+number format:
+  description: "Puts commas into a number to make it readable."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: number
+      label: "Number to format:"
+      editor: text
+      
+
+levenshtein distance:
+  description: "Calculates Levenshtein distance between two strings."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text1
+      label: "First string:"
+      editor: text
+      
+    - name: text2
+      label: "Second string:"
+      editor: text
+      
+
+clean text:
+  description: "Trim and replace multiple spaces with a single space."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to clean:"
+      editor: text
+      
+
+character list:
+  description: "Returns a list of the individual characters in a string."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text:"
+      editor: text
+      
+
+swap case:
+  description: "Returns a copy of the string in which all the case-based characters have had their case swapped."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text:"
+      editor: text
+      
+
+count text:
+  description: "Counts the number of times a substring appears in the text."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to search in:"
+      editor: text
+      
+    - name: searchText
+      label: "Text to search for:"
+      editor: text
+      
+
+escape html:
+  description: "Converts HTML special characters to their entity equivalents."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: hTML
+      label: "HTML to escape:"
+      editor: text
+      
+
+unescape html:
+  description: "Converts entity characters to HTML equivalents."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: hTML
+      label: "HTML to unescape:"
+      editor: text
+      
+
+is blank:
+  description: "Determines whether text is empty or contains only white space. Returns true or false."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to check:"
+      editor: text
+      
+
+is number:
+  description: "Determines whether text is a number. Returns true or false."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to check:"
+      editor: text
+      
+
+starts with:
+  description: "Checks whether the string begins with specified text. Returns true or false."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to check:"
+      editor: text
+      
+    - name: substring
+      label: "Substring to check with:"
+      editor: text
+      
+
+ends with:
+  description: "Checks whether the string ends with specified text. Returns true or false."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to check:"
+      editor: text
+      
+    - name: substring
+      label: "Substring to check with:"
+      editor: text
+      
+
+camelize:
+  description: "Converts underscored or dasherized string to a camelized one. Begins with a lower case letter unless it starts with an underscore, dash or an upper case letter."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to camelize:"
+      editor: text
+      
+
+classify:
+  description: "Converts string to camelized class name. First letter is always upper case"
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to classify:"
+      editor: text
+      
+
+underscored:
+  description: "Converts a camelized or dasherized string into an underscored one"
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to underscore:"
+      editor: text
+      
+
+dasherize:
+  description: "Converts a underscored or camelized string into an dasherized one"
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to dasherize:"
+      editor: text
+      
+
+humanize:
+  description: "Converts an underscored, camelized, or dasherized string into a humanized one. Also removes beginning and ending whitespace, and removes the postfix '_id'."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to humanize:"
+      editor: text
+      
+
+truncate:
+  description: "Cuts text at specified location, replacing it with ""..."""
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to truncate:"
+      editor: text
+      
+    - name: location
+      label: "Location:"
+      editor: text
+      
+
+prune:
+  description: "Elegant version of truncate. Makes sure the pruned string does not exceed the original length. Avoid half-chopped words when truncating."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to prune:"
+      editor: text
+      
+    - name: location
+      label: "Location:"
+      editor: text
+      
+
+strip tags:
+  description: "Removes all html tags from string."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to strip:"
+      editor: text
+      
+
+words:
+  description: "Returns a list of the words in specified text."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text:"
+      editor: text
+      
+
+to sentence:
+  description: "Join an array into a human readable sentence."
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: wordList
+      label: "Word List:"
+      editor: list
+      
+
+repeat text:
+  description: "Repeats string specified number of times"
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to repeat:"
+      editor: text
+      
+    - name: number
+      label: "Number of times to repeat:"
+      editor: text
+      
+
+surround text:
+  description: "Surrounds text with other text"
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to surround:"
+      editor: text
+      
+    - name: surroundText
+      label: "Text to surround with:"
+      editor: text
+      
+
+slugify:
+  description: "Transform text into an ascii slug which can be used in safely in URLs. Replaces whitespaces, accentuated, and special characters with a dash. Limited set of non-ascii characters are transformed to similar versions in the ascii character set such as ä to a"
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text to slugify:"
+      editor: text
+      
+
+word count:
+  description: "Returns the number of words in text"
+  userlevel: free
+  category:  "Advanced Text"  
+  parameters:
+    - name: text
+      label: "Text:"
+      editor: text
+      
+
+with each:
+  description: "With each item in the list, run these functions."
+  userlevel: free
+  category:  "Advanced List"  
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+    - name: variable
+      label: "Variable:"
+      editor: variable
+      
+
+remove text from list:
+  description: "Removes a list item according to its contents."
+  userlevel: free
+  category:  "Advanced List"  
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+    - name: text
+      label: "Text to remove:"
+      editor: text
+      
+    - name: count
+      label: "First item or all?"
+      editor: list box
+      advanced: True
+      items:
+        - First
+        - All
+
+replace list item:
+  description: "Replaces a list item with a new item."
+  userlevel: free
+  category:  "Advanced List"  
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+    - name: position
+      label: "Position:"
+      editor: text
+      
+    - name: newItem
+      label: "New Item:"
+      editor: text
+      
+    - name: scope
+      label: "List Scope:"
+      editor: list box
+      advanced: True
+      items:
+        - Global
+        - Local
+
+enqueue:
+  description: "Adds an item to the end of a list."
+  userlevel: free
+  category:  "Advanced List"  
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+    - name: item
+      label: "Item to enqueue:"
+      editor: text
+      
+    - name: scope
+      label: "List Scope:"
+      editor: list box
+      advanced: True
+      items:
+        - Global
+        - Local
+
+dequeue:
+  description: "Removes and returns first item in a list."
+  userlevel: free
+  category:  "Advanced List"  
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+
+push:
+  description: "Inserts an item into the beginning of a list."
+  userlevel: free
+  category:  "Advanced List"  
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+    - name: item
+      label: "Item to push:"
+      editor: text
+      
+    - name: scope
+      label: "List Scope:"
+      editor: list box
+      advanced: True
+      items:
+        - Global
+        - Local
+
+pop:
+  description: "Removes and returns the first list item."
+  userlevel: free
+  category:  "Advanced List"  
+  parameters:
+    - name: list
+      label: "List:"
+      editor: list
+      
+
+absolute value:
+  description: "Returns the absolute value."
+  userlevel: free
+  category:  "Extended Math"  
+  parameters:
+    - name: number
+      label: "Number:"
+      editor: text
+      
+
+ceiling:
+  description: "Returns the next whole integer."
+  userlevel: free
+  category:  "Extended Math"  
+  parameters:
+    - name: number
+      label: "Number:"
+      editor: text
+      
+
+floor:
+  description: "Returns the previous whole integer."
+  userlevel: free
+  category:  "Extended Math"  
+  parameters:
+    - name: number
+      label: "Number:"
+      editor: text
+      
+
+tan:
+  description: "Returns the tangent."
+  userlevel: free
+  category:  "Extended Math"  
+  parameters:
+    - name: number
+      label: "Number:"
+      editor: text
+      
+
+cos:
+  description: "Returns the cosine."
+  userlevel: free
+  category:  "Extended Math"  
+  parameters:
+    - name: number
+      label: "Number:"
+      editor: text
+      
+
+sin:
+  description: "Returns the sine"
+  userlevel: free
+  category:  "Extended Math"  
+  parameters:
+    - name: number
+      label: "Number:"
+      editor: text
+      
+
+division remainder:
+  description: "Returns the remainder of a division."
+  userlevel: free
+  category:  "Extended Math"  
+  parameters:
+    - name: dividend
+      label: "Dividend:"
+      editor: text
+      
+    - name: divisor
+      label: "Divisor:"
+      editor: text
+      
+
+logarithm:
+  description: "Returns a logarithm."
+  userlevel: free
+  category:  "Extended Math"  
+  parameters:
+    - name: number
+      label: "Number:"
+      editor: text
+      
+
+min:
+  description: "Returns the smaller of two numbers."
+  userlevel: free
+  category:  "Extended Math"  
+  parameters:
+    - name: number1
+      label: "Number 1:"
+      editor: text
+      
+    - name: number2
+      label: "Number 2:"
+      editor: text
+      
+
+max:
+  description: "Returns the larger of two numbers."
+  userlevel: free
+  category:  "Extended Math"  
+  parameters:
+    - name: number1
+      label: "Number 1:"
+      editor: text
+      
+    - name: number2
+      label: "Number 2:"
+      editor: text
+      
+
+square root:
+  description: "Returns the square root."
+  userlevel: free
+  category:  "Extended Math"  
+  parameters:
+    - name: number
+      label: "Number:"
+      editor: text
+      
+
+round:
+  description: "Returns a rounded integer."
+  userlevel: free
+  category:  "Extended Math"  
+  parameters:
+    - name: number
+      label: "Number:"
+      editor: text
+      
+
+zip folder:
+  description: "Creates a zip file from a folder."
+  userlevel: free
+  category:  "Compression"  
+  parameters:
+    - name: folder
+      label: "Folder:"
+      editor: open folder
+      
+    - name: fileName
+      label: "File Name:"
+      editor: open folder
+      
+
+unzip file:
+  description: "Unzips a file to a folder."
+  userlevel: free
+  category:  "Compression"  
+  parameters:
+    - name: file
+      label: "File to unzip:"
+      editor: open file
+      
+    - name: folder
+      label: "Folder:"
+      editor: open folder
+      
+
+add file to zip:
+  description: "Adds a file to a zip."
+  userlevel: free
+  category:  "Compression"  
+  parameters:
+    - name: zfile
+      label: "Zip File:"
+      editor: open file
+      
+    - name: file
+      label: "File to add:"
+      editor: open file
+      
+
+extract file from zip:
+  description: "Extracts a file from a zip."
+  userlevel: free
+  category:  "Compression"  
+  parameters:
+    - name: zfile
+      label: "Zip File:"
+      editor: open file
+      
+    - name: fileName
+      label: "File Name:"
+      editor: text
+      
+    - name: folder
+      label: "Folder to extract to:"
+      editor: open folder
+      
+
+files in zip:
+  description: "Returns the file names in a zip."
+  userlevel: free
+  category:  "Compression"  
+  parameters:
+    - name: file
+      label: "File:"
+      editor: open file
+      
+
+

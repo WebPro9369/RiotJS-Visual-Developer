@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml"></html><head><link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-layout/1.4.3/layout-default.css"/><link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"/><link rel="stylesheet" href="/stylesheets/style.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css"/><link rel="stylesheet" href="/prototype/style.css"/></head><body><div onmouseover="myLayout.allowOverflow('north')" onmouseout="myLayout.resetOverflow(this)" class="ui-layout-north"></div><div class="ui-layout-west"></div><div class="ui-layout-south"></div><div class="ui-layout-east"></div><div class="ui-layout-center"><toolbox><bloq-toolbox block="print" class="command"><div class="command-header dragg-handler"><span>print</span></div></bloq-toolbox><bloq-toolbox block="for" haschildren="true" class="command"><div class="command-header dragg-handler"><span>for</span></div></bloq-toolbox></toolbox><visual-script-editor><bloq-list root="true" class="root"><bloq contenteditable="false" block="print" class="command"><div class="command-header dragg-handler"><span class="bloq-title">print</span><span class="editIcon"><a class="btn-flat waves-effect waves-tea redEditButton"><i class="material-icons">edit </i></a></span></div><div class="command-body"><parameter name="text" value="hello"><label>text</label><div contenteditable="false" class="string-box content-editable-div sortable-item"><span>hello</span></div></parameter></div></bloq><bloq contenteditable="false" block="for" haschildren="true" class="command"><div class="command-header dragg-handler"><span class="bloq-title">for</span><span class="editIcon"><a class="btn-flat waves-effect waves-tea redEditButton"><i class="material-icons">edit </i></a></span></div><div class="command-body"><parameter name="index" value="i"><label>index</label><div contenteditable="false" class="string-box content-editable-div sortable-item"><span>i</span></div></parameter><parameter name="sequence" value="range(1, 10)"><label>sequence</label><div contenteditable="false" class="string-box content-editable-div sortable-item"><span>range(1,</span><span>10)</span></div></parameter></div><bloq-list><bloq contenteditable="false" block="print" class="command"><div class="command-header dragg-handler"><span class="bloq-title">print</span><span class="editIcon"><a class="btn-flat waves-effect waves-tea redEditButton"><i class="material-icons">edit </i></a></span></div><div class="command-body"><parameter name="text" value="2 text spaced text"><label>text</label><div contenteditable="false" class="string-box content-editable-div sortable-item"><span>2</span><span>text</span><span>spaced</span><span>text</span></div></parameter></div></bloq></bloq-list><drop-bloq><div class="drop-bloq">drop bloqs here</div></drop-bloq></bloq></bloq-list><div class="overlay"> </div><drop-bloq><div class="drop-bloq">drop bloqs here</div></drop-bloq></visual-script-editor></div><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-layout/1.4.3/jquery.layout.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script><script type="text/javascript" src="https://cdn.rawgit.com/jeremyfa/yaml.js/develop/dist/yaml.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.6.0/riot+compiler.js"></script><script type="text/javascript" src="https://cdn.rawgit.com/j-ulrich/jquery-simulate-ext/13829b2b/libs/jquery.simulate.js"></script><script type="text/javascript" src="https://cdn.rawgit.com/j-ulrich/jquery-simulate-ext/13829b2b/src/jquery.simulate.ext.js"></script><script type="text/javascript" src="https://cdn.rawgit.com/j-ulrich/jquery-simulate-ext/13829b2b/libs/bililiteRange.js"></script><script type="text/javascript" src="https://cdn.rawgit.com/j-ulrich/jquery-simulate-ext/13829b2b/src/jquery.simulate.key-sequence.js"></script><script type="text/javascript" src="https://cdn.rawgit.com/j-ulrich/jquery-simulate-ext/13829b2b/src/jquery.simulate.drag-n-drop.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script><script type="text/javascript" src="https://cdn.rawgit.com/adamschwartz/log/master/log.min.js"></script><script src="/lib/lib.js?0.19252945280186395"></script><script>(function() {
+  var oldIndex;
+
+  oldIndex = [];
+
+  $("visual-script-editor bloq-list.root").sortable({
+    itemSelector: 'bloq , .draggable-element , bloq-toolbox',
+    handle: '.dragg-handler , .draggable-element',
+    group: 'nav',
+    exclude: '.not-draggable-element ,.dragged',
+    containerSelector: 'bloq-list , .sortable-item',
+    placeholder: '<bloq class="placeholder"></bloq>',
+    onDragStart: function($item, container, _super) {
+      var dragContainer;
+      dragContainer = container.el[0].tagName;
+      if (!container.options.drop) {
+        $item.clone().insertAfter($item);
+      }
+      return _super($item, container);
+    },
+    onDrop: function($item, container, _super) {
+      var $clonedItem, hOffset, itemTop, left, parentPosition, poistionleft, topManipulation;
+      $clonedItem = $('<bloq/>').css({
+        height: 0
+      });
+      $item.before($clonedItem);
+      $clonedItem.animate({
+        'height': $item.height()
+      });
+      topManipulation = 0;
+      console.log(container.el[0]);
+      if ($item.prop('tagName') === 'BLOQ-TOOLBOX') {
+        hOffset = window.pageYOffset || document.documentElement.scrollTop;
+        itemTop = parseFloat($item.css('top'));
+        topManipulation = hOffset + itemTop;
+        poistionleft = $('visual-script-editor').position().left;
+        left = parseFloat($item.css('left')) - poistionleft;
+        if ($(container.el[0]).hasClass('string-box')) {
+          parentPosition = $(container.el[0]).closest('.draggable-element').offset();
+          topManipulation -= parentPosition.top;
+          left -= $(container.el[0]).closest('.draggable-element').position().left;
+        }
+        $item.css('top', topManipulation);
+        $item.css('left', left);
+      }
+      $item.animate($clonedItem.position(), function() {
+        var replacedBloq;
+        $clonedItem.detach();
+        replacedBloq = $item;
+        if ($item.prop('tagName') === 'BLOQ-TOOLBOX') {
+          oldIndex.shift();
+        }
+        _super(replacedBloq, container);
+      });
+    }
+  });
+
+  $("toolbox").sortable({
+    drop: false,
+    group: 'nav'
+  });
+
+}).call(this);
+</script></body>

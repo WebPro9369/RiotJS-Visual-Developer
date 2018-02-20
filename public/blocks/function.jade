@@ -1,0 +1,11 @@
+﻿mixin function(func)
+  li.command
+    - console.log(func)
+    span.command-header #{func.block}
+    ol.command-body
+      each param in func.parameters
+        +parameter(param.editor, param.name)
+      if func.hasChildren
+        each child in func.children
+          +function(child)
+        +dragBlocksHere()

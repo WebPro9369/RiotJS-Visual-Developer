@@ -1,0 +1,18 @@
+
+print:
+  parameters:
+    - name: text
+      editor: text
+  output: print({{text}})
+
+for:
+  parameters:
+    - name: index
+      editor: variable
+    - name: sequence
+      editor: text
+  haschildren: true
+  output: for
+
+now:
+  output: now()

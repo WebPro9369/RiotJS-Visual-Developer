@@ -1,0 +1,1003 @@
+variable:
+  hidden: true
+  bloqType: variable
+  store: variables
+  parameters:
+    - name: name
+      editor: variable
+      default: MyVariable
+list:
+  hidden: true
+  bloqType: list
+  store: lists
+  parameters:
+    - name: name
+      editor: lists
+      default: MyList
+
+set:
+  category: Data
+  parameters:
+    - name: variable
+      label: Enter a variable name
+      editor: variable
+      default: myVariable
+
+    - name: value
+      label: Enter a value
+      editor: text
+      default: ""
+      placeholder: '2 or "hello" or drag a bloq'
+  toolboxData:
+    type: variable
+    name: @variable
+  output: "@variable = @value"
+
+create list:
+  category: Data
+  parameters:
+    - name: listName
+      label: Enter a list name
+      editor: lists
+      default: myList
+  toolboxData:
+    type: list
+    name: @listName
+  output: "@listName = []"
+
+increment:
+  parameters:
+    - name: variable
+      label: Enter a Variable
+      editor: variable
+      default: myVariable
+
+  output: "@variable += 1"
+
+decrement:
+  parameters:
+    - name: variable
+      label: Enter a Variable
+      editor: variable
+      default: myVariable
+  output: "@variable -= 1"
+
+repeat:
+  description: "Repeats the contained bloqs a specified number of times"
+  category: Flow   
+  parameters:
+    - name: repetitions
+      label: "Number of repetitions:"
+      editor: text
+      default: 10
+  hasChildren: true
+  output: |
+            for x in range(0, @repetitions):
+              @children
+
+repeat while:
+  description: "Repeats the contained bloqs while a specified condition is true"
+  category: Flow   
+  parameters:
+    - name: condition
+      label: "Condition To Wait For:"
+      editor: condition
+      advanced: false
+  hasChildren: true
+  output: |
+            while True:
+              @children
+if:
+  bloqType: if
+  description: "Runs the contained bloqs if the condition is true"
+  category: Logic   
+  parameters:
+    - name: condition
+      label: "Condition:"
+      editor: text
+  children:
+    - bloq: then
+  hasChildren: true
+  output: |
+            if @condition:
+            @children
+
+then:
+  bloqType: then
+  hidden: true
+  description: "If true, then to this"
+  category: Logic
+  hasChildren: true
+  output: "  @children"
+
+else if:
+  bloqType: if inner
+  hidden: true
+  description: "If not true but other condition is true, then do this"
+  category: Logic   
+  hasChildren: true
+  parameters:
+    - name: condition
+      label: "Condition:"
+      editor: text
+  hasChildren: true
+  output: |
+            elif @condition:
+              @children
+
+else:
+  bloqType: if inner
+  hidden: true
+  description: "If nothing else is true, then do this"
+  category: Logic
+  hasChildren: true
+  hasChildren: true
+  output: |
+            else:
+              @children
+# comparer:
+#   category: Logic   
+#   bloqType: comparer
+#   parameters:
+#     - name: condition1
+#       label: first condition
+#       editor: condition
+#       default: 2
+
+#     - name: comparer
+#       label: comparer
+#       editor: listbox
+#       quotes: false
+#       items:
+#         - display: "== equals"
+#           value: "=="
+#         - display: "!= does not equal"
+#           value: "!="
+#         - display: "< is less than"
+#           value: "<"
+#         - display: "> is greater than"
+#           value: ">"
+#         - display: "=< is less or equal"
+#           value: "=<"
+#         - display: "=> is greater or equal"
+#           value: "=>"
+#       default:
+#         display: "== equals"
+#         value: "=="
+
+#     - name: condition2
+#       label: second condition
+#       editor: condition
+#       default: 2
+#   output: @condition1 @comparer @condition2
+
+
+true:
+  description: "Returns true"
+  bloqType: operator only
+  category: Logic
+  output: "True"
+
+false:
+  description: "Returns false"
+  category: Logic
+  output: "False"
+
+both:
+  description: "Returns true if both conditions are true"
+  category: Logic   
+  parameters:
+    - name: first
+      label: "First Condition"
+      editor: condition
+    - name: second
+      label: "Second Condition"
+      editor: condition
+  output: "(@first and @second)"
+      
+
+either:
+  description: "Returns true if either condition is true"
+  category: Logic   
+  parameters:
+    - name: first
+      label: "First Condition"
+      editor: condition
+      
+    - name: second
+      label: "Second Condition"
+      editor: condition
+
+  output: "(@first or @second)"
+      
+
+not:
+  description: "Returns true if the condition is not true"
+  bloqType: operator left
+  category: Logic   
+  parameters:
+    - name: condition
+      label: "Condition"
+      editor: condition
+  
+  output: "(not @condition)"
+
+define:
+  description: "Defines a function"
+  hidden: true
+  title: define @name
+  category: Flow   
+  parameters:
+    - name: name
+      label: "Name:"
+      editor: define
+      quotes: false
+    - name: params
+      label: "Parameters:"
+      editor: parameter list  
+  toolboxData:
+    type: function
+    name: @name
+    add: true
+    remove: true
+  hasChildren: true
+  output: |
+            def @name(@params):
+              @children
+
+
+import:
+  description: "Import another script."
+  hidden: true
+  category: Flow   
+  parameters:
+    - name: file
+      label: "Select a file to import:"
+      editor: open file
+      advanced: false
+
+
+new line:
+  description: "Returns a line break"
+  category: Text Functions
+
+empty text:
+  description: "Returns empty text"
+  category: Text Functions
+  output: "\"\""
+
+
+replace:
+  description: "Returns the original text with all instances of the search text replaced by the replace text"
+  category: Text Functions
+  bloqType: function
+  parameters:
+    - name: original
+      label: "Original Text"
+      editor: text
+      
+    - name: search
+      label: "Search Text"
+      editor: text
+      
+    - name: replace
+      label: "Replace Text"
+      editor: text
+      
+
+replace regular expression:
+  description: "Returns the original text with all instances of the pattern text replaced by the replace text"
+  category: Text Functions   
+  parameters:
+    - name: original
+      label: "Original Text"
+      editor: text
+      
+    - name: pattern
+      label: "Pattern Text"
+      editor: text
+      
+    - name: replace
+      label: "Replace Text"
+      editor: text
+      
+
+change text casing:
+  description: "Returns the text with the casing of the text changed"
+  category: Text Functions   
+  parameters:
+    - name: text
+      label: "Text To Change:"
+      editor: text
+      
+    - name: casing
+      label: "Casing:"
+      editor: list box
+      
+      items:
+        - Upper Case
+        - Lower Case
+        - Proper Case
+        - Camel Case
+
+trim:
+  description: "Returns the text with all leading or trailing blank spaces removed"
+  category: Text Functions   
+  parameters:
+    - name: text
+      label: "Text:"
+      editor: text
+      
+
+substring:
+  description: "Returns a specified part of an original string"
+  category: Text Functions   
+  parameters:
+    - name: text
+      label: "Original Text:"
+      editor: text
+      
+    - name: startPoint
+      label: "Starting Point:"
+      editor: text
+      
+    - name: totalLength
+      label: "Number Of Characters:"
+      editor: text
+      
+
+random text:
+  description: "Returns a random alpha-numeric string of user defined length, including upper and lowercase letters"
+  category: Text Functions   
+  parameters:
+    - name: length
+      label: "Length:"
+      editor: text
+      
+
+pad text:
+  description: "Returns a new string that is padded with a character"
+  category: Text Functions   
+  parameters:
+    - name: text
+      label: "Original Text:"
+      editor: text
+      
+    - name: character
+      label: "Padding Character:"
+      editor: text
+      
+    - name: totalLength
+      label: "New Length After Padding:"
+      editor: text
+      
+    - name: direction
+      label: "Side To Pad:"
+      editor: list box
+      
+      items:
+        - Left
+        - Right
+
+text length:
+  description: "Returns the total length of the text"
+  category: Text Functions   
+  parameters:
+    - name: text
+      label: "Text:"
+      editor: text
+      
+
+insert text:
+  description: "Returns the original text with another piece of text inserted at a specified position"
+  category: Text Functions   
+  parameters:
+    - name: originalText
+      label: "Original Text:"
+      editor: text
+      
+    - name: textToInsert
+      label: "Text To Insert:"
+      editor: text
+      
+    - name: position
+      label: "Position To Insert Text:"
+      editor: text
+      
+
+find index:
+  description: "Returns the index of a piece of text within the original text"
+  category: Text Functions   
+  parameters:
+    - name: originalText
+      label: "Original Text:"
+      editor: text
+      
+    - name: textToFind
+      label: "Text To Find:"
+      editor: text
+      
+
+append line to text:
+  description: "Returns the original text with a new line of text appended to the end"
+  category: Text Functions   
+  parameters:
+    - name: originalText
+      label: "Original Text:"
+      editor: text
+      
+    - name: text
+      label: "Text To Append:"
+      editor: text
+      
+
+find regular expression:
+  description: "Returns a list of all matches of the regular expression in the original text"
+  category: Text Functions   
+  parameters:
+    - name: text
+      label: "Text:"
+      editor: text
+      
+    - name: expression
+      label: "Regular Expression:"
+      editor: text
+      
+contains:
+  description: "Returns whether or not the specified text contains the search text"
+  category: Text Functions   
+  parameters:
+    - name: container
+      label: "Text:"
+      editor: text
+      
+    - name: searchText
+      label: "Text To Search For:"
+      editor: text
+      
+random number:
+  description: "Returns a random number between the minimum and maximum values."
+  category: Math Functions   
+  parameters:
+    - name: min
+      label: "Minimum Value:"
+      editor: text
+      
+    - name: max
+      label: "Maximum Value:"
+      editor: text
+      
+
+add:
+  description: "Returns the result of adding two numbers"
+  bloqType: operator
+  title: "+"
+  category: Math Functions   
+  parameters:
+    - name: left
+      label: "Left Side Value:"
+      editor: text
+      
+    - name: right
+      label: "Right Side Value:"
+      editor: text
+      
+
+subtract:
+  description: "Returns the result of subtracting two numbers"
+  category: Math Functions   
+  parameters:
+    - name: left
+      label: "Left Side Value:"
+      editor: text
+      
+    - name: right
+      label: "Right Side Value:"
+      editor: text
+    
+percent:
+  description: "The number as a percentage"
+  bloqType: operator right
+  title: "%"
+  category: Math Functions   
+  parameters:
+    - name: number
+      label: "Number:"
+      editor: text
+      
+
+multiply:
+  description: "Returns the result of multiplying two numbers"
+  category: Math Functions   
+  parameters:
+    - name: left
+      label: "Left Side Value:"
+      editor: text
+      
+    - name: right
+      label: "Right Side Value:"
+      editor: text
+      
+
+divide:
+  description: "Returns the result of dividing two numbers"
+  category: Math Functions   
+  parameters:
+    - name: left
+      label: "Left Side Value:"
+      editor: text
+      
+    - name: right
+      label: "Right Side Value:"
+      editor: text
+      
+
+exponent:
+  description: "Returns the result of taking one number to a specified exponent"
+  category: Math Functions   
+  parameters:
+    - name: left
+      label: "Number:"
+      editor: text
+      
+    - name: right
+      label: "Exponent:"
+      editor: text
+      
+
+list count:
+  description: "Returns the total number of items in a list"
+  category: Data   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: lists
+      
+
+# list position:
+#   description: "Returns the current numerical position of UBot in a list"
+  
+#   category: Data   
+#   parameters:
+#     - name: list
+#       label: "List:"
+#       editor: lists
+      
+
+random list item:
+  description: "Returns a randomly selected item form a list"
+  category: Data   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: lists
+      
+
+# next list item:
+#   description: "Returns the list item at the list's current position, and increments the list's position."
+  
+#   category: Data   
+#   parameters:
+#     - name: list
+#       label: "List:"
+#       editor: lists
+      
+
+# previous list item:
+#   description: "Returns the list item at the list's current position, and decrements the list's position."
+  
+#   category: Data   
+#   parameters:
+#     - name: list
+#       label: "List:"
+#       editor: lists
+      
+
+list item:
+  description: "Returns the list item at the specified position"
+  category: Data   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: lists
+      
+    - name: position
+      label: "Position:"
+      editor: text
+
+
+list from file:
+  description: "Returns a list of each line in a file"
+  category: Data   
+  parameters:
+    - name: file
+      label: "File:"
+      editor: open file
+      
+
+list from text:
+  description: "Returns a list of items by separating the text into separate items based on a delimiter"
+  category: Data   
+  parameters:
+    - name: text
+      label: "Text:"
+      editor: text
+      
+    - name: delimiter
+      label: "Delimiter:"
+      editor: text
+      
+
+text from list:
+  description: "Returns text based on connecting each list item by a connector."
+  category: Data   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: lists
+      
+    - name: connector
+      label: "Connector:"
+      editor: text
+      
+
+subtract lists:
+  description: "Returns the first list with all items in the second list removed from it"
+  userlevel: professional
+  category: Data   
+  parameters:
+    - name: firstList
+      label: "List 1:"
+      editor: lists
+      
+    - name: secondList
+      label: "List 2:"
+      editor: lists
+      
+
+sort list:
+  description: "Returns the original list sorted in ascending or descending order"
+  userlevel: professional
+  category: Data   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: lists
+      
+    - name: direction
+      label: "Direction:"
+      editor: list box
+      
+      items:
+        - Ascending
+        - Descending
+
+common list items:
+  description: "Returns a new list containing the common items between the first and second lists"
+  userlevel: professional
+  category: Data   
+  parameters:
+    - name: firstList
+      label: "List 1:"
+      editor: lists
+      
+    - name: secondList
+      label: "List 2:"
+      editor: lists
+
+add to list:
+  description: "Adds an item to the end of a list"
+  category: Data   
+  parameters:
+    - name: list
+      label: "List To Add To:"
+      editor: lists
+      
+    - name: item
+      label: "Item To Add:"
+      editor: text
+      
+    - name: deleteDuplicates
+      label: "Delete duplicates:"
+      editor: list box
+      advanced: True
+      items:
+        - Don't Delete
+        - Delete
+    - name: scope
+      label: "List Scope:"
+      editor: list box
+      advanced: True
+      items:
+        - Global
+        - Local
+
+remove from list:
+  description: "Removes the list item at the specified position"
+  category: Data   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: lists
+      
+    - name: position
+      label: "Position:"
+      editor: text
+      
+
+# set list position:
+#   description: "Sets the position of a list which is used by $next list item"
+  
+#   category: Data   
+#   parameters:
+#     - name: list
+#       label: "List:"
+#       editor: lists
+      
+#     - name: position
+#       label: "Position:"
+#       editor: text
+      
+
+clear list:
+  description: "Empties the contents of a list and resets its list position to 0."
+  category: Data   
+  parameters:
+    - name: list
+      label: "List:"
+      editor: lists
+      
+
+save to file:
+  description: "Saves text or lists to a file."
+  category: File Functions 
+  parameters:
+    - name: file
+      label: "Save As:"
+      editor: save file
+      
+    - name: content
+      label: "Content To Save:"
+      editor: text
+      
+rename file:
+  description: "Renames a file"
+  category: File Functions 
+  parameters:
+    - name: file
+      label: "File To Rename:"
+      editor: open file
+      
+    - name: newName
+      label: "New File Name:"
+      editor: text
+      
+
+move file:
+  description: "Moves a file to a new location"
+  category: File Functions 
+  parameters:
+    - name: file
+      label: "File To Move:"
+      editor: open file
+      
+    - name: location
+      label: "New Location:"
+      editor: open folder
+      
+
+delete file:
+  description: "Deletes a file"
+  category: File Functions 
+  parameters:
+    - name: file
+      label: "File To Delete:"
+      editor: open file
+      
+
+copy file:
+  description: "Copies a file to a new location"
+  category: File Functions 
+  parameters:
+    - name: file
+      label: "File To Copy:"
+      editor: open file
+      
+    - name: copyTo
+      label: "Copy To Location:"
+      editor: open folder
+      
+
+rename folder:
+  description: "Renames a Folder"
+  category: File Functions 
+  parameters:
+    - name: folder
+      label: "Folder To Rename:"
+      editor: open folder
+      
+    - name: newName
+      label: "New Folder Name:"
+      editor: text
+      
+
+move folder:
+  description: "Moves a folder to a new location"
+  category: File Functions 
+  parameters:
+    - name: folder
+      label: "Folder To Move:"
+      editor: open folder
+      
+    - name: location
+      label: "New Location:"
+      editor: open folder
+      
+
+delete folder:
+  description: "Deletes a folder"
+  category: File Functions 
+  parameters:
+    - name: folder
+      label: "Folder to Delete:"
+      editor: open folder
+      
+
+create folder:
+  description: "Creates a new folder"
+  category: File Functions 
+  parameters:
+    - name: folderLocation
+      label: "New Folder Location:"
+      editor: open folder
+      
+    - name: newFolderName
+      label: "New Folder Name:"
+      editor: text
+      
+
+copy folder:
+  description: "Copies a folder to a new location"
+  category: File Functions 
+  parameters:
+    - name: folder
+      label: "Folder To Copy:"
+      editor: open folder
+      
+    - name: copyTo
+      label: "Copy To Location:"
+      editor: open folder
+      
+
+append to file:
+  description: "Appends text to the start or end of a file"
+  category: File Functions 
+  parameters:
+    - name: file
+      label: "File To Append To:"
+      editor: open file
+      
+    - name: text
+      label: "Text To Append:"
+      editor: text
+      
+    - name: whereToAppend
+      label: "Where To Append:"
+      editor: list box
+      
+      items:
+        - End
+        - Beginning
+
+get files:
+  description: "Returns a list of all files in a given directory"
+  userlevel: professional
+  category: File Functions 
+  parameters:
+    - name: folder
+      label: "Folder To Search:"
+      editor: open folder
+      
+    - name: includePath
+      label: "Include Path:"
+      editor: list box
+      
+      items:
+        - Yes
+        - No
+
+file exists:
+  description: "Returns whether or not a file exists."
+  category: File Functions 
+  parameters:
+    - name: file
+      label: "File To Check:"
+      editor: open file
+      
+folder exists:
+  description: "Returns whether or not a folder exists."
+  category: File Functions 
+  parameters:
+    - name: folder
+      label: "Folder To Check:"
+      editor: open folder
+      
+# special folder:
+#   description: "Returns the path to a special system folder"
+#   category: File Functions 
+#   parameters:
+#     - name: specialFolder
+#       label: "Special Folder:"
+#       editor: list box
+#       items:
+#         - Application
+#         - Application Data
+#         - UBot Plugins
+#         - Desktop
+#         - Favorites
+#         - My Documents
+#         - My Music
+#         - My Pictures
+#         - My Videos
+#         - Program Files
+#         - Startup
+#         - System
+
+# alert:
+#   description: "Displays an alert box to display a message to the user"
+#   category: Interaction Functions   
+#   parameters:
+#     - name: message
+#       label: "Message:"
+#       editor: text
+      
+
+# confirm:
+#   description: "Displays a yes/no confirmation box that returns true if they choose Yes"
+#   category: Interaction Functions   
+#   parameters:
+#     - name: message
+#       label: "Message:"
+#       editor: text
+      
+
+# prompt:
+#   description: "Prompts the user to respond and returns the text they typed"
+#   category: Interaction Functions   
+#   parameters:
+#     - name: message
+#       label: "Message:"
+#       editor: text
+
+print:
+  parameters:
+    - name: text
+      label: "text"
+      editor: text
+  output: print(@text)
+
+#these bloqs only exist for testing purposes
+for:
+  parameters:
+    - name: index
+      label: "index"
+      editor: variable
+    - name: sequence
+      label: sequence
+      editor: text
+  hasChildren: true
+  output: for
+
+now:
+  output: now()
+
+drop example:
+  category: test bloqs
+  parameters:
+    - name: downdown
+      label: "drop down"
+      editor: drop down
+      items:
+        - one
+        - two
+        - three

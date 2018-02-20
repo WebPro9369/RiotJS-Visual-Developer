@@ -1,0 +1,69 @@
+- bloq: print
+  parameters:
+    - text:
+        value: "hello, @0"
+        children:
+          - bloq: getName
+            parameters:
+              gender: male
+
+
+
+- bloq: "print"
+  objects:
+    - string
+    - io
+  parameters:
+    name: "text"
+    value: "hello"
+    editor: "text"
+
+
+- bloq: "add"
+  objects:
+    - myList
+  parameters:
+    item: 
+      bloq: "new"
+      parameters:
+        class: dog
+
+
+- bloq: "define"
+  decorators:
+    - log
+  parameters:
+    name: bark
+
+
+io.string.print("hi")
+
+io
+string
+print
+  "hello"
+
+
+
+- objects:
+    - alf
+    - myPets
+  bloq: "bark"
+
+  parameters:
+    name: "text"
+    value: "hello"
+    editor: "text"
+
+myPets.alf.bark
+
+
+- objects:
+    - io
+    - string
+  bloq: "print"
+  parameters:
+    name: "text"
+    value: "hello"
+    editor: "text"
+

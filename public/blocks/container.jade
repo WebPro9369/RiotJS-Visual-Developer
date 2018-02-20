@@ -1,0 +1,8 @@
+﻿li.command
+  span.command-header #{name}
+
+  ol.command-body
+    each parameter in parameters
+    .input-field.col.s6
+        input#text.validate(type='text')
+        label(for='text') Text

@@ -1,0 +1,4014 @@
+
+navigate:
+  description: "Navigates the browser to a URL."
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: URL
+      label: "URL:"
+      editor: text
+      advanced: False
+    - name: Wait
+      label: "Wait for page to load:"
+      editor: list box
+      advanced: True
+      items:
+        - Wait
+        - Don't Wait
+
+click:
+  description: "Clicks an element in the browser"
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: Element
+      label: "Element To Click:"
+      editor: element
+      advanced: False
+    - name: MouseEvent
+      label: "Mouse Event:"
+      editor: list box
+      advanced: True
+      items:
+        - Left Click
+        - Right Click
+        - Double Click
+        - Left Mouse Down
+        - Left Mouse Up
+        - Right Mouse Down
+        - Right Mouse Up
+    - name: Location
+      label: "Click Using Location:"
+      editor: list box
+      advanced: True
+      items:
+        - No
+        - Yes
+
+type text:
+  description: "Types text into the browser"
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: Element
+      label: "Element To Type Into:"
+      editor: element
+      advanced: False
+    - name: Text
+      label: "Text To Type:"
+      editor: text
+      advanced: False
+    - name: KeyEvent
+      label: "Key Event:"
+      editor: list box
+      advanced: True
+      items:
+        - Standard
+        - Key Down
+        - Key Up
+        - Key Press
+        - Flash Plugin
+
+change dropdown:
+  description: "Changes the selected item in a dropdown"
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: Element
+      label: "Element To Change:"
+      editor: element
+      advanced: False
+    - name: NewValue
+      label: "New Dropdown Value"
+      editor: list box
+      advanced: False
+      items:
+        - Random - Skip First Choice
+        - Random
+
+change checkbox:
+  description: "Checks or unchecks a checkbox"
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: Element
+      label: "Element To Change:"
+      editor: element
+      advanced: False
+    - name: Checked
+      label: "Checked"
+      editor: list box
+      advanced: False
+      items:
+        - Checked
+        - Unchecked
+
+mouse over:
+  description: "This will mouse over the specified element."
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: Element
+      label: "Element To Mouse Over:"
+      editor: element
+      advanced: False
+    - name: Location
+      label: "Mouse Over Using Location:"
+      editor: list box
+      advanced: True
+      items:
+        - No
+        - Yes
+
+change attribute:
+  description: "Changes any attribute on an HTML element"
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: Element
+      label: "Element To Change:"
+      editor: element
+      advanced: False
+    - name: Attribute
+      label: "Attribute To Change:"
+      editor: list box
+      advanced: False
+      items:
+        - %%attributes%%
+    - name: NewValue
+      label: "New Attribute Value:"
+      editor: text
+      advanced: False
+
+change file field:
+  description: "Selects a file from a file field"
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: Element
+      label: "File Field Element:"
+      editor: element
+      advanced: False
+    - name: File
+      label: "File To Use:"
+      editor: open file
+      advanced: False
+
+focus:
+  description: "Changes the browser's focus to a specific element"
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: Element
+      label: "Element To Focus:"
+      editor: element
+      advanced: False
+
+scrape table:
+  description: "Scrapes an HTML table element into a UBot Table"
+  userlevel: Professional
+  category: Browser   
+  parameters:
+    - name: Element
+      label: "Table Element:"
+      editor: element
+      advanced: False
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+
+download file:
+  description: "Downloads a file."
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: URL
+      label: "Download URL:"
+      editor: text
+      advanced: False
+    - name: File
+      label: "Save As:"
+      editor: save file
+      advanced: False
+
+save downloaded file:
+  description: "Saves a file that has been automatically downloaded by the browser"
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: File
+      label: "File To Save To:"
+      editor: save file
+      advanced: False
+
+load html:
+  description: "Displays the given html in the browser."
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: html
+      label: "HTML:"
+      editor: code
+      advanced: False
+
+close page:
+  description: "Closes the current page in the browser."
+  userlevel: Free
+  category: Browser   
+  parameters:
+
+solve click captcha:
+  description: "Solves a captcha that requires clicking images. Requires a 2captcha account."
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: Element
+      label: "Captcha Element:"
+      editor: element
+      advanced: False
+
+reject captcha:
+  description: "This command will let your chosen captcha provider know that the most recently used captcha failed."
+  userlevel: Free
+  category: Browser   
+  parameters:
+
+run javascript:
+  description: "Runs JavaScript code"
+  userlevel: Standard
+  category: Browser   
+  parameters:
+    - name: Javascript
+      label: "Javascript:"
+      editor: code
+      advanced: False
+
+save element image:
+  description: "Saves the image of an element"
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: Element
+      label: "Element To Capture"
+      editor: element
+      advanced: False
+    - name: File
+      label: "File To Save To:"
+      editor: save file
+      advanced: False
+
+save browser image:
+  description: "Saves a screenshot of the current page"
+  userlevel: Free
+  category: Browser   
+  parameters:
+    - name: File
+      label: "File to Save To:"
+      editor: save file
+      advanced: False
+
+in new browser:
+  description: "Runs all contained commands inside a separate web browser in a separate windows"
+  userlevel: Standard
+  category: Browser   
+  parameters:
+
+in shared browser:
+  description: "Runs all contained commands inside a new browser that shares cookies with the current browser"
+  userlevel: Standard
+  category: Browser   
+  parameters:
+
+in popup:
+  description: "Runs all contained commands inside a previously opened popup from a webpage"
+  userlevel: Standard
+  category: Browser   
+  parameters:
+
+set proxy credentials:
+  description: "Sets the username and password credentials for the current proxy"
+  userlevel: Standard
+  category: BrowserSetting   
+  parameters:
+    - name: Username
+      label: "Username:"
+      editor: text
+      advanced: False
+    - name: Password
+      label: "Password:"
+      editor: text
+      advanced: False
+
+set website credentials:
+  description: "Sets the username and password credentials for HTTP authentication on a website"
+  userlevel: Standard
+  category: BrowserSetting   
+  parameters:
+    - name: Username
+      label: "Username:"
+      editor: text
+      advanced: False
+    - name: Password
+      label: "Password:"
+      editor: text
+      advanced: False
+
+clear cookies:
+  description: "Clears all cookies in the browser."
+  userlevel: Free
+  category: BrowserSetting   
+  parameters:
+
+change proxy:
+  description: "Changes the proxy used in the browser."
+  userlevel: Free
+  category: BrowserSetting   
+  parameters:
+    - name: Proxy
+      label: "Proxy (ip:port):"
+      editor: list box
+      advanced: False
+      items:
+        - None
+
+set user agent:
+  description: "Changes the User Agent sent to websites"
+  userlevel: Standard
+  category: BrowserSetting   
+  parameters:
+    - name: UserAgent
+      label: "User Agent:"
+      editor: list box
+      advanced: False
+      items:
+        - Internet Explorer 6
+        - Internet Explorer 7
+        - Internet Explorer 8
+        - Internet Explorer 9
+        - Internet Explorer 10
+        - Chrome
+        - Safari
+        - Firefox 4
+        - Firefox 5
+        - Firefox 6
+        - Android
+        - iPhone
+        - Googlebot
+        - MSNbot
+        - Yahoo Slurp bot
+
+set browser property:
+  description: "Changes the specified browser property."
+  userlevel: Free
+  category: BrowserSetting   
+  parameters:
+    - name: Setting
+      label: "Setting:"
+      editor: list box
+      advanced: False
+      items:
+        - navigator.appCodeName
+        - navigator.appName
+        - navigator.appVersion
+        - navigator.cookieEnabled
+        - navigator.language
+        - navigator.onLine
+        - navigator.platform
+        - navigator.product
+        - navigator.productSub
+        - navigator.vendorSub
+        - navigator.vendor
+        - screen.availTop
+        - screen.availLeft
+        - screen.availHeight
+        - screen.availWidth
+        - screen.colorDepth
+        - screen.height
+        - screen.left
+        - screen.pixelDepth
+        - screen.top
+        - screen.width
+    - name: NewValue
+      label: "New Value:"
+      editor: text
+      advanced: False
+
+set referrer:
+  description: "Changes the Referrer sent to websites"
+  userlevel: Standard
+  category: BrowserSetting   
+  parameters:
+    - name: Referrer
+      label: "Referrer URL:"
+      editor: text
+      advanced: False
+
+set visibility:
+  description: "Determines whether or not the browser shows what it is doing while it is running"
+  userlevel: Professional
+  category: BrowserSetting   
+  parameters:
+    - name: Visibility
+      label: "Visible Or Invisible:"
+      editor: list box
+      advanced: False
+      items:
+        - Visible
+        - Invisible
+
+allow images:
+  description: "Determines whether or not the browser loads external images"
+  userlevel: Professional
+  category: BrowserSetting   
+  parameters:
+    - name: Allowed
+      label: "Allow Images:"
+      editor: list box
+      advanced: False
+      items:
+        - Yes
+        - No
+
+allow css:
+  description: "Determines whether or not the browser loads external css"
+  userlevel: Professional
+  category: BrowserSetting   
+  parameters:
+    - name: Allowed
+      label: "Allow CSS:"
+      editor: list box
+      advanced: False
+      items:
+        - Yes
+        - No
+
+allow popups:
+  description: "Determines whether or not the browser shows popups"
+  userlevel: Standard
+  category: BrowserSetting   
+  parameters:
+    - name: Allowed
+      label: "Allow Popups:"
+      editor: list box
+      advanced: False
+      items:
+        - Yes
+        - In New Window
+        - No
+
+allow javascript:
+  description: "Determines whether or not the browser loads external javascript"
+  userlevel: Professional
+  category: BrowserSetting   
+  parameters:
+    - name: Allowed
+      label: "Allow JavaScript:"
+      editor: list box
+      advanced: False
+      items:
+        - Yes
+        - No
+
+allow flash:
+  description: "Determines whether or not the browser loads external flash swf files"
+  userlevel: Professional
+  category: BrowserSetting   
+  parameters:
+    - name: Allowed
+      label: "Allow Flash:"
+      editor: list box
+      advanced: False
+      items:
+        - Yes
+        - No
+
+wait:
+  description: "Waits for the specified number of seconds"
+  userlevel: Free
+  category: Flow   
+  parameters:
+    - name: Seconds
+      label: "Seconds To Wait:"
+      editor: text
+      advanced: False
+
+wait for element:
+  description: "Waits for the specified element to appear or disappear from the page"
+  userlevel: Free
+  category: Flow   
+  parameters:
+    - name: Element
+      label: "Element To Wait For:"
+      editor: element
+      advanced: False
+    - name: Timeout
+      label: "Timeout (in seconds):"
+      editor: text
+      advanced: True
+    - name: Visibility
+      label: "Wait for element to appear or disappear:"
+      editor: list box
+      advanced: True
+      items:
+        - Appear
+        - Disappear
+
+wait for browser event:
+  description: "Waits for a browser event to happen such as a page being loaded"
+  userlevel: Free
+  category: Flow   
+  parameters:
+    - name: BrowserEvent
+      label: "Event To Wait For:"
+      editor: list box
+      advanced: False
+      items:
+        - DOM Ready
+        - Page Loaded
+        - Everything Loaded
+    - name: Timeout
+      label: "Timeout (in seconds):"
+      editor: text
+      advanced: True
+
+loop:
+  description: "Runs the contained commands a specified number of times"
+  userlevel: Free
+  category: Flow   
+  parameters:
+    - name: Cycles
+      label: "Number of Cycles:"
+      editor: text
+      advanced: False
+
+loop while:
+  description: "Runs the contained commands while a specified condition is true"
+  userlevel: Free
+  category: Flow   
+  parameters:
+    - name: Condition
+      label: "Condition To Wait For:"
+      editor: condition
+      advanced: False
+
+if:
+  description: "Runs the contained commands if the condition is true"
+  userlevel: Free
+  category: Flow   
+  parameters:
+    - name: Condition
+      label: "Condition To Run Commands:"
+      editor: condition
+      advanced: False
+
+then:
+  description: "Use this inside of an if command to specify which commands should run if the condition is true"
+  userlevel: Free
+  category: Flow   
+  parameters:
+
+else if:
+  description: "Use this insisde of an if command to specify another condition to check if the last condition was not true"
+  userlevel: Free
+  category: Flow   
+  parameters:
+    - name: Condition
+      label: "Condition:"
+      editor: condition
+      advanced: False
+
+else:
+  description: "Use this inside of an if command to specify which commands should run if the condition is not true"
+  userlevel: Free
+  category: Flow   
+  parameters:
+
+define:
+  description: "Defines a custom command or function that can be used in the current bot"
+  userlevel: Free
+  category: Flow   
+  parameters:
+    - name: Name
+      label: "Name:"
+      editor: define
+      advanced: False
+    - name: NodeType
+      label: "Command or Function:"
+      editor: list box
+      advanced: False
+      items:
+        - Command
+        - Function
+    - name: Params
+      label: "Parameters:"
+      editor: parameter list
+      advanced: False
+
+return:
+  description: "Exits the current command or function and allows custom functions to return a value"
+  userlevel: Free
+  category: Flow   
+  parameters:
+    - name: Result
+      label: "Return value:"
+      editor: text
+      advanced: False
+
+include:
+  description: "This command will allow you to use defined commands from other bots via the ""run command"" command."
+  userlevel: Free
+  category: Flow   
+  parameters:
+    - name: File
+      label: "Select a .ubot file to include:"
+      editor: open file
+      advanced: False
+
+on load:
+  description: "Commands inside of this command will run when the bot is loaded or the tab is loaded"
+  userlevel: Developer
+  category: Flow   
+  parameters:
+    - name: EventType
+      label: "Event Type"
+      editor: list box
+      advanced: False
+      items:
+        - Bot Loaded
+        - Tab Loaded
+
+thread:
+  description: "Runs the contained commands in a seperate thread from the main script allowing multiple commands to run at the same time"
+  userlevel: Professional
+  category: Flow   
+  parameters:
+
+pause script:
+  description: "Pauses the script. This is generally used for debugging"
+  userlevel: Free
+  category: Flow   
+  parameters:
+
+stop script:
+  description: "Stops the script from running any further"
+  userlevel: Free
+  category: Flow   
+  parameters:
+
+send email:
+  description: "Sends an email using an SMTP server."
+  userlevel: Standard
+  category: Email   
+  parameters:
+    - name: SendTo
+      label: "Send To:"
+      editor: text
+      advanced: False
+    - name: Subject
+      label: "Subject:"
+      editor: text
+      advanced: False
+    - name: EmailType
+      label: "Email Type:"
+      editor: list box
+      advanced: False
+      items:
+        - Plain Text
+        - HTML
+    - name: Message
+      label: "Message:"
+      editor: text
+      advanced: False
+    - name: Attachment
+      label: "Attachment:"
+      editor: open file
+      advanced: False
+    - name: SendFrom
+      label: "Send From:"
+      editor: text
+      advanced: True
+    - name: BCC
+      label: "BCC:"
+      editor: text
+      advanced: True
+
+connect to mail server:
+  description: "Connects to an email server."
+  userlevel: Standard
+  category: Email   
+  parameters:
+    - name: ConnectionType
+      label: "Connection Type:"
+      editor: list box
+      advanced: False
+      items:
+        - POP3
+        - POP3 With SSL
+        - IMAP
+        - IMAP With SSL
+        - SMTP
+        - SMTP With SSL
+    - name: Username
+      label: "Username:"
+      editor: text
+      advanced: False
+    - name: Password
+      label: "Password:"
+      editor: text
+      advanced: False
+    - name: Server
+      label: "Server:"
+      editor: text
+      advanced: False
+    - name: Port
+      label: "Port:"
+      editor: list box
+      advanced: False
+      items:
+        - 110
+        - 995
+        - 143
+        - 585
+        - 994
+        - 25
+        - 465
+        - 80
+
+verify emails:
+  description: "Scans your mailbox for verification emails and opens the verification links."
+  userlevel: Standard
+  category: Email   
+  parameters:
+    - name: SubjectExpresion
+      label: "Subject Expresion:"
+      editor: text
+      advanced: False
+    - name: URLExpresion
+      label: "URL Expresion:"
+      editor: text
+      advanced: False
+    - name: DeleteEmails
+      label: "Delete Emails:"
+      editor: list box
+      advanced: False
+      items:
+        - Processed Verification Emails
+        - All Emails
+        - None
+
+create table from emails:
+  description: "Creates a table containing all of the emails in the mailbox."
+  userlevel: Standard
+  category: Email   
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+
+delete email:
+  description: "Deletes an email from the mailbox at the specified position."
+  userlevel: Standard
+  category: Email   
+  parameters:
+    - name: Position
+      label: "Position:"
+      editor: text
+      advanced: False
+
+email total messages:
+  description: "Compares two values and returns the result."
+  userlevel: Standard
+  category: Null   
+  parameters:
+
+email subject:
+  description: "Returns the subject of the email at the specified position."
+  userlevel: Standard
+  category: Null   
+  parameters:
+    - name: Position
+      label: "Position:"
+      editor: list box
+      advanced: False
+      items:
+        - 
+
+email recipient:
+  description: "Returns the recipients of the email at the specified position."
+  userlevel: Standard
+  category: Null   
+  parameters:
+    - name: Position
+      label: "Position:"
+      editor: list box
+      advanced: False
+      items:
+        - 
+
+email from:
+  description: "Returns the body text of the email at the specified position."
+  userlevel: Standard
+  category: Null   
+  parameters:
+    - name: Position
+      label: "Position:"
+      editor: list box
+      advanced: False
+      items:
+        - 
+
+email date:
+  description: "Returns the date received of the email at the specified position."
+  userlevel: Standard
+  category: Null   
+  parameters:
+    - name: Position
+      label: "Position:"
+      editor: list box
+      advanced: False
+      items:
+        - 
+
+email body text:
+  description: "Returns the body text of the email at the specified position."
+  userlevel: Standard
+  category: Null   
+  parameters:
+    - name: Position
+      label: "Position:"
+      editor: list box
+      advanced: False
+      items:
+        - 
+
+email body html:
+  description: "Returns the HTML body of the email at the specified position."
+  userlevel: Standard
+  category: Null   
+  parameters:
+    - name: Position
+      label: "Position:"
+      editor: list box
+      advanced: False
+      items:
+        - 
+
+run command:
+  description: "Runs a custom command"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Bot
+      label: "Which bot?"
+      editor: list box
+      advanced: False
+      items:
+        - %%botlist%%
+    - name: WhichCommand
+      label: "Which command?"
+      editor: list box
+      advanced: False
+      items:
+        - 
+    - name: Params
+      label: "Enter Parameters:"
+      editor: parameter list
+      advanced: False
+
+run plugin command:
+  description: "Runs a plugin command"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Plugin
+      label: "Plugin:"
+      editor: text
+      advanced: False
+    - name: CommandName
+      label: "Command Name:"
+      editor: text
+      advanced: False
+    - name: Params
+      label: "Enter Parameters:"
+      editor: parameter list
+      advanced: False
+
+run plugin function:
+  description: "Runs a plugin function"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Plugin
+      label: "Plugin:"
+      editor: text
+      advanced: False
+    - name: FunctionName
+      label: "Function Name:"
+      editor: text
+      advanced: False
+    - name: Params
+      label: "Enter Parameters:"
+      editor: parameter list
+      advanced: False
+
+run bot source command:
+  description: "Runs a custom command"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: ID
+      label: "ID:"
+      editor: text
+      advanced: False
+    - name: Params
+      label: "Enter Parameters:"
+      editor: parameter list
+      advanced: False
+
+run private bot bank command:
+  description: "Runs a custom command"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: ID
+      label: "ID:"
+      editor: text
+      advanced: False
+    - name: Params
+      label: "Enter Parameters:"
+      editor: parameter list
+      advanced: False
+
+run function:
+  description: "Runs a custom function"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Bot
+      label: "Which bot?"
+      editor: list box
+      advanced: False
+      items:
+        - %%botlist%%
+    - name: WhichFunction
+      label: "Which function?"
+      editor: list box
+      advanced: False
+      items:
+        - 
+    - name: Params
+      label: "Enter Parameters:"
+      editor: parameter list
+      advanced: False
+
+string parameter:
+  description: "string parameter"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+variable parameter:
+  description: "variable parameter"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+list parameter:
+  description: "list parameter"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+table parameter:
+  description: "table parameter"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+element parameter:
+  description: "element parameter"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+parameter list parameter:
+  description: "parameter list parameter"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+url:
+  description: "Returns the current url"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+title:
+  description: "Returns the current page title"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+meta description:
+  description: "Returns the current meta description"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+meta keywords:
+  description: "Returns the current meta keywords"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+document text:
+  description: "Returns the current document text"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+page scrape:
+  description: "Returns text scraped from the current page between two specified pieces of text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Left
+      label: "Text On Left Side:"
+      editor: text
+      advanced: False
+    - name: Right
+      label: "Text On Right Side:"
+      editor: text
+      advanced: False
+
+scrape attribute:
+  description: "Returns the value of a specified attribute on the selected element"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Element
+      label: "Element To Scrape:"
+      editor: element
+      advanced: False
+    - name: Attribute
+      label: "Attribute To Scrape:"
+      editor: list box
+      advanced: False
+      items:
+        - %%attributes%%
+
+element offset:
+  description: "If an element selector matches more than one element, this allows you to return one of those elements"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Element
+      label: "Element:"
+      editor: element
+      advanced: False
+    - name: Offset
+      label: "Offset:"
+      editor: text
+      advanced: False
+
+element from text:
+  description: "Converts a text representation of a selector to an actual selector."
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Selector
+      label: "Selector:"
+      editor: text
+      advanced: False
+
+element parent:
+  description: "Returns the parent of an element"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Element
+      label: "Element:"
+      editor: element
+      advanced: False
+
+element child:
+  description: "Returns the child of an element"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Element
+      label: "Element"
+      editor: element
+      advanced: False
+
+element sibling:
+  description: "Returns the sibling of a specific element"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Element
+      label: "Element"
+      editor: element
+      advanced: False
+
+solve captcha:
+  description: "This command will either prompt the user to type in a CAPTCHA, or send the CAPTCHA to a service to solve it"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Element
+      label: "Captcha Element:"
+      editor: element
+      advanced: False
+
+spin:
+  description: "Returns a spun version of the given text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: SpinText
+      label: "Text To Spin:"
+      editor: blockText
+      advanced: False
+
+new line:
+  description: "Returns a line break"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+nothing:
+  description: "Returns an empty value"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+replace:
+  description: "Returns the original text with all instances of the search text replaced by the replace text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Original
+      label: "Original Text"
+      editor: text
+      advanced: False
+    - name: Search
+      label: "Search Text"
+      editor: text
+      advanced: False
+    - name: Replace
+      label: "Replace Text"
+      editor: text
+      advanced: False
+
+replace regular expression:
+  description: "Returns the original text with all instances of the pattern text replaced by the replace text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Original
+      label: "Original Text"
+      editor: text
+      advanced: False
+    - name: Pattern
+      label: "Pattern Text"
+      editor: text
+      advanced: False
+    - name: Replace
+      label: "Replace Text"
+      editor: text
+      advanced: False
+
+change text casing:
+  description: "Returns the text with the casing of the text changed"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Text
+      label: "Text To Change:"
+      editor: text
+      advanced: False
+    - name: Casing
+      label: "Casing:"
+      editor: list box
+      advanced: False
+      items:
+        - Upper Case
+        - Lower Case
+        - Proper Case
+
+trim:
+  description: "Returns the text with all leading or trailing blank spaces removed"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Text
+      label: "Text:"
+      editor: text
+      advanced: False
+
+substring:
+  description: "Returns a specified part of an original string"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Text
+      label: "Original Text:"
+      editor: text
+      advanced: False
+    - name: StartPoint
+      label: "Starting Point:"
+      editor: text
+      advanced: False
+    - name: TotalLength
+      label: "Number Of Characters:"
+      editor: text
+      advanced: False
+
+random text:
+  description: "Returns a random alpha-numeric string of user defined length, including upper and lowercase letters"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Length
+      label: "Length:"
+      editor: text
+      advanced: False
+
+pad text:
+  description: "Returns a new string that is padded with a character"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Text
+      label: "Original Text:"
+      editor: text
+      advanced: False
+    - name: Character
+      label: "Padding Character:"
+      editor: text
+      advanced: False
+    - name: TotalLength
+      label: "New Length After Padding:"
+      editor: text
+      advanced: False
+    - name: Direction
+      label: "Side To Pad:"
+      editor: list box
+      advanced: False
+      items:
+        - Left
+        - Right
+
+text length:
+  description: "Returns the total length of the text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Text
+      label: "Text:"
+      editor: text
+      advanced: False
+
+insert text:
+  description: "Returns the original text with another piece of text inserted at a specified position"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: OriginalText
+      label: "Original Text:"
+      editor: text
+      advanced: False
+    - name: TextToInsert
+      label: "Text To Insert:"
+      editor: text
+      advanced: False
+    - name: Position
+      label: "Position To Insert Text:"
+      editor: text
+      advanced: False
+
+find index:
+  description: "Returns the index of a piece of text within the original text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: OriginalText
+      label: "Original Text:"
+      editor: text
+      advanced: False
+    - name: TextToFind
+      label: "Text To Find:"
+      editor: text
+      advanced: False
+
+append line to text:
+  description: "Returns the original text with a new line of text appended to the end"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: OriginalText
+      label: "Original Text:"
+      editor: text
+      advanced: False
+    - name: Text
+      label: "Text To Append:"
+      editor: text
+      advanced: False
+
+find regular expression:
+  description: "Returns a list of all matches of the regular expression in the original text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Text
+      label: "Text:"
+      editor: text
+      advanced: False
+    - name: Expression
+      label: "Regular Expression:"
+      editor: text
+      advanced: False
+
+eval:
+  description: "Returns the result of executing a piece of javascript"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Expression
+      label: "Expression"
+      editor: text
+      advanced: False
+
+rand:
+  description: "Returns a random number between the minimum and maximum values."
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Min
+      label: "Minimum Value:"
+      editor: text
+      advanced: False
+    - name: Max
+      label: "Maximum Value:"
+      editor: text
+      advanced: False
+
+add:
+  description: "Returns the result of adding two numbers"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Left
+      label: "Left Side Value:"
+      editor: text
+      advanced: False
+    - name: Right
+      label: "Right Side Value:"
+      editor: text
+      advanced: False
+
+subtract:
+  description: "Returns the result of subtracting two numbers"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Left
+      label: "Left Side Value:"
+      editor: text
+      advanced: False
+    - name: Right
+      label: "Right Side Value:"
+      editor: text
+      advanced: False
+
+multiply:
+  description: "Returns the result of multiplying two numbers"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Left
+      label: "Left Side Value:"
+      editor: text
+      advanced: False
+    - name: Right
+      label: "Right Side Value:"
+      editor: text
+      advanced: False
+
+divide:
+  description: "Returns the result of dividing two numbers"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Left
+      label: "Left Side Value:"
+      editor: text
+      advanced: False
+    - name: Right
+      label: "Right Side Value:"
+      editor: text
+      advanced: False
+
+exponent:
+  description: "Returns the result of taking one number to a specified exponent"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Left
+      label: "Number:"
+      editor: text
+      advanced: False
+    - name: Right
+      label: "Exponent:"
+      editor: text
+      advanced: False
+
+list total:
+  description: "Returns the total number of items in a list"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+
+list position:
+  description: "Returns the current numerical position of UBot in a list"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+
+random list item:
+  description: "Returns a randomly selected item form a list"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+
+next list item:
+  description: "Returns the list item at the list's current position, and increments the list's position."
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+
+previous list item:
+  description: "Returns the list item at the list's current position, and decrements the list's position."
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+
+list item:
+  description: "Returns the list item at the specified position"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+    - name: Position
+      label: "Position:"
+      editor: text
+      advanced: False
+
+read file:
+  description: "Returns the contents of a file"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: File
+      label: "File:"
+      editor: open file
+      advanced: False
+
+list from file:
+  description: "Returns a list of each line in a file"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: File
+      label: "File:"
+      editor: open file
+      advanced: False
+
+list from text:
+  description: "Returns a list of items by separating the text into separate items based on a delimiter"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Text
+      label: "Text:"
+      editor: text
+      advanced: False
+    - name: Delimiter
+      label: "Delimiter:"
+      editor: text
+      advanced: False
+
+text from list:
+  description: "Returns text based on connecting each list item by a connector."
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+    - name: Connector
+      label: "Connector:"
+      editor: text
+      advanced: False
+
+subtract lists:
+  description: "Returns the first list with all items in the second list removed from it"
+  userlevel: Professional
+  category: Null   
+  parameters:
+    - name: FirstList
+      label: "List 1:"
+      editor: list
+      advanced: False
+    - name: SecondList
+      label: "List 2:"
+      editor: list
+      advanced: False
+
+sort list:
+  description: "Returns the original list sorted in ascending or descending order"
+  userlevel: Professional
+  category: Null   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+    - name: Direction
+      label: "Direction:"
+      editor: list box
+      advanced: False
+      items:
+        - Ascending
+        - Descending
+
+common list items:
+  description: "Returns a new list containing the common items between the first and second lists"
+  userlevel: Professional
+  category: Null   
+  parameters:
+    - name: FirstList
+      label: "List 1:"
+      editor: list
+      advanced: False
+    - name: SecondList
+      label: "List 2:"
+      editor: list
+      advanced: False
+
+table cell:
+  description: "Returns the value of a table cell"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+    - name: Row
+      label: "Row:"
+      editor: text
+      advanced: False
+    - name: Column
+      label: "Column:"
+      editor: text
+      advanced: False
+
+table total rows:
+  description: "Returns the number of rows in a table."
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+
+table total columns:
+  description: "Returns the number of columns in a table."
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+
+reset account:
+  description: "Resets the account info to a new account"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: Gender
+      label: "Gender For Account:"
+      editor: list box
+      advanced: False
+      items:
+        - Any
+        - Male
+        - Female
+
+account data:
+  description: "Returns a piece of account data generated by UBot"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Data
+      label: "Which Data:"
+      editor: list box
+      advanced: False
+      items:
+        - First Name
+        - Last Name
+        - Email
+        - Username
+        - Password
+        - Gender
+        - Zip Code
+        - City
+        - State
+        - State Abbreviation
+        - County
+        - Birth Day
+        - Birth Month
+        - Birth Month Word
+        - Birth Year
+
+set:
+  description: "Set allows you to store a value in a variable"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: Variable
+      label: "Variable Name:"
+      editor: variable
+      advanced: False
+    - name: NewValue
+      label: "New Value:"
+      editor: text
+      advanced: False
+    - name: Scope
+      label: "Local Or Global:"
+      editor: list box
+      advanced: True
+      items:
+        - Global
+        - Local
+
+increment:
+  description: "Adds 1 to a variable"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: Variable
+      label: "Variable"
+      editor: variable
+      advanced: False
+
+decrement:
+  description: "Subtracts 1 from a variable"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: Variable
+      label: "Variable:"
+      editor: variable
+      advanced: False
+
+add item to list:
+  description: "Adds an item to the end of a list"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: List
+      label: "List To Add To:"
+      editor: list
+      advanced: False
+    - name: Item
+      label: "Item To Add:"
+      editor: text
+      advanced: False
+    - name: DeleteDuplicates
+      label: "Delete duplicates:"
+      editor: list box
+      advanced: True
+      items:
+        - Don't Delete
+        - Delete
+    - name: Scope
+      label: "List Scope:"
+      editor: list box
+      advanced: True
+      items:
+        - Global
+        - Local
+
+add list to list:
+  description: "Adds every item in one list to the end of the other list"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: List
+      label: "Starting List:"
+      editor: list
+      advanced: False
+    - name: ListtoAdd
+      label: "List To Add:"
+      editor: list
+      advanced: False
+    - name: DeleteDuplicates
+      label: "Delete duplicates:"
+      editor: list box
+      advanced: True
+      items:
+        - Delete
+        - Don't Delete
+    - name: Scope
+      label: "List Scope:"
+      editor: list box
+      advanced: True
+      items:
+        - Global
+        - Local
+
+remove from list:
+  description: "Removes the list item at the specified position"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+    - name: Position
+      label: "Position:"
+      editor: text
+      advanced: False
+
+set list position:
+  description: "Sets the position of a list which is used by $next list item"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+    - name: Position
+      label: "Position:"
+      editor: text
+      advanced: False
+
+clear list:
+  description: "Empties the contents of a list and resets its list position to 0."
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+
+create table from file:
+  description: "Allows you to create a table based on a csv file"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: File
+      label: "CSV File::"
+      editor: open file
+      advanced: False
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+
+set table cell:
+  description: "Allows you to set a specific cell in a table"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+    - name: Row
+      label: "Row:"
+      editor: text
+      advanced: False
+    - name: Column
+      label: "Column:"
+      editor: text
+      advanced: False
+    - name: Content
+      label: "New Cell Content:"
+      editor: text
+      advanced: False
+
+add list to table as column:
+  description: "Inserts a list into a table at the specified location"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+    - name: Row
+      label: "Starting Row:"
+      editor: text
+      advanced: False
+    - name: Column
+      label: "Starting Column:"
+      editor: text
+      advanced: False
+    - name: List
+      label: "List To Add:"
+      editor: list
+      advanced: False
+
+add list to table as row:
+  description: "Inserts a list into a table at the specified location"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+    - name: Row
+      label: "Starting Row:"
+      editor: text
+      advanced: False
+    - name: Column
+      label: "Starting Column:"
+      editor: text
+      advanced: False
+    - name: List
+      label: "List To Add:"
+      editor: list
+      advanced: False
+
+clear table:
+  description: "Empties the contents of a table"
+  userlevel: Free
+  category: Data   
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+
+establish:
+  description: "Executes a function to establish that a certain condition is true, terminate bot if unsuccessful"
+  userlevel: Free
+  category: Log   
+  parameters:
+    - name: EstablishTitle
+      label: "Establish message:"
+      editor: text
+      advanced: False
+    - name: Condition
+      label: "Condition to establish:"
+      editor: condition
+      advanced: False
+    - name: Assert
+      label: "Assert and fail if unable to establish:"
+      editor: list box
+      advanced: True
+      items:
+        - No
+        - Yes
+
+purpose:
+  description: "Set a bot's purpose"
+  userlevel: Free
+  category: Log   
+  parameters:
+    - name: Purpose
+      label: "Purpose:"
+      editor: text
+      advanced: False
+
+activity:
+  description: "Set a bot's purpose"
+  userlevel: Free
+  category: Log   
+  parameters:
+    - name: Activity
+      label: "Activity:"
+      editor: text
+      advanced: False
+
+log:
+  description: "Log command"
+  userlevel: Free
+  category: Log   
+  parameters:
+    - name: Log
+      label: "Log:"
+      editor: text
+      advanced: False
+
+section:
+  description: "Define a section."
+  userlevel: Free
+  category: Log   
+  parameters:
+    - name: Section
+      label: "Section:"
+      editor: text
+      advanced: False
+
+describe:
+  description: "Defines a unit test suite."
+  userlevel: Free
+  category:  "Unit Testing"  
+  parameters:
+    - name: What
+      label: "What are we describing?"
+      editor: text
+      advanced: False
+
+it:
+  description: "Defines a unit test."
+  userlevel: Free
+  category:  "Unit Testing"  
+  parameters:
+    - name: What
+      label: "What should it do?"
+      editor: text
+      advanced: False
+
+expect:
+  description: "Specifies a condition for a unit test to expect"
+  userlevel: Free
+  category:  "Unit Testing"  
+  parameters:
+    - name: Condition
+      label: "Condition to expect:"
+      editor: condition
+      advanced: False
+
+clear log view:
+  description: "Clears the log view."
+  userlevel: Free
+  category: Null   
+  parameters:
+
+search page:
+  description: "Returns whether or not the specified text is present on the page."
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Query
+      label: "Search Query:"
+      editor: search
+      advanced: False
+
+contains:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Container
+      label: "Text:"
+      editor: text
+      advanced: False
+    - name: SearchText
+      label: "Text To Search For:"
+      editor: text
+      advanced: False
+
+exists:
+  description: "Returns whether or not an element exists on the current page"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Element
+      label: "Element To Find"
+      editor: element
+      advanced: False
+
+true:
+  description: "Returns true"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+false:
+  description: "Returns false"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+both:
+  description: "Returns true if both conditions are true"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: First
+      label: "First Condition"
+      editor: condition
+      advanced: False
+    - name: Second
+      label: "Second Condition"
+      editor: condition
+      advanced: False
+
+either:
+  description: "Returns true if either condition is true"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: First
+      label: "First Condition"
+      editor: condition
+      advanced: False
+    - name: Second
+      label: "Second Condition"
+      editor: condition
+      advanced: False
+
+not:
+  description: "Returns true if the condition is not true"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Condition
+      label: "Condition"
+      editor: condition
+      advanced: False
+
+comparison:
+  description: "Compares two values and returns the result"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Value1
+      label: "First Value:"
+      editor: text
+      advanced: False
+    - name: Condition
+      label: "Condition:"
+      editor: list box
+      advanced: False
+      items:
+        - = Equals
+        - != Does not equal
+        - < Less than
+        - <= Less than or equal to
+        - > Greater than
+        - >= Greater than or equal to
+    - name: Value2
+      label: "Second Value:"
+      editor: text
+      advanced: False
+
+ui text box:
+  description: "Creates a text box in the ui panel tied to a specified variable"
+  userlevel: Free
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+    - name: Variable
+      label: "Corresponding Variable:"
+      editor: variable
+      advanced: False
+
+ui password:
+  description: "Creates a password text box in the ui panel tied to a specified variable"
+  userlevel: Free
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+    - name: Variable
+      label: "Corresponding Variable:"
+      editor: variable
+      advanced: False
+
+ui block text:
+  description: "Creates a large text box in the ui panel tied to a specified variable"
+  userlevel: Free
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+    - name: Variable
+      label: "Corresponding Variable:"
+      editor: variable
+      advanced: False
+
+ui check box:
+  description: "Creates a check box in the ui panel tied to a specified variable"
+  userlevel: Free
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+    - name: Variable
+      label: "Corresponding Variable:"
+      editor: variable
+      advanced: False
+
+ui open file:
+  description: "Creates a file field in the ui panel tied to a specified variable"
+  userlevel: Free
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+    - name: Variable
+      label: "Corresponding Variable:"
+      editor: variable
+      advanced: False
+
+ui save file:
+  description: "Creates a file field in the ui panel tied to a specified variable"
+  userlevel: Free
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+    - name: Variable
+      label: "Corresponding Variable:"
+      editor: variable
+      advanced: False
+
+ui drop down:
+  description: "Creates a drop down in the ui panel tied to a specified variable"
+  userlevel: Free
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+    - name: Values
+      label: "Values Separated By Commas:"
+      editor: text
+      advanced: False
+    - name: Variable
+      label: "Corresponding Variable:"
+      editor: variable
+      advanced: False
+
+ui list box:
+  description: "Creates a list box in the ui panel ui panel tied to a specified variable"
+  userlevel: Free
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+    - name: Values
+      label: "Values Separated By Commas:"
+      editor: text
+      advanced: False
+    - name: Variable
+      label: "Corresponding Variable:"
+      editor: variable
+      advanced: False
+
+ui stat monitor:
+  description: "Creates a stat tracker in the ui panel ui panel tied to a specified variable"
+  userlevel: Free
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+    - name: Content
+      label: "Content To Track:"
+      editor: text
+      advanced: False
+
+ui window:
+  description: "Creates a menu item under the settings menu that displays the contained ui elements"
+  userlevel: Free
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+
+ui html window:
+  description: "Creates a menu item under the settings menu that displays UI using HTML"
+  userlevel: Developer
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+    - name: HTML
+      label: "HTML:"
+      editor: code
+      advanced: False
+    - name: Width
+      label: "Width In Pixels:"
+      editor: text
+      advanced: False
+    - name: Height
+      label: "Height In Pixels:"
+      editor: text
+      advanced: False
+
+ui button:
+  description: "Creates a button in the ui panel that runs the contained commands when clicked"
+  userlevel: Free
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+
+ui html panel:
+  description: "Allows you to build your own UI using HTML"
+  userlevel: Developer
+  category: UI   
+  parameters:
+    - name: HTML
+      label: "HTML:"
+      editor: code
+      advanced: False
+    - name: Height
+      label: "Height In Pixels:"
+      editor: text
+      advanced: False
+
+ui log view:
+  description: "Creates a large text box in the ui panel that shows all current log statements"
+  userlevel: Free
+  category: UI   
+  parameters:
+    - name: Label
+      label: "Label:"
+      editor: text
+      advanced: False
+
+date:
+  description: "Returns the current date"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+shell:
+  description: "Runs an executable"
+  userlevel: Standard
+  category: System   
+  parameters:
+    - name: File
+      label: "Executable File:"
+      editor: open file
+      advanced: False
+
+blank space parameter:
+  description: ""
+  userlevel: Free
+  category: Null   
+  parameters:
+
+blank space:
+  description: ""
+  userlevel: Free
+  category: Null   
+  parameters:
+
+command place holder:
+  description: ""
+  userlevel: Free
+  category: Null   
+  parameters:
+
+divider:
+  description: "Visually divides up nodes to help the visual aesthetics of the script window"
+  userlevel: Free
+  category: Flow   
+  parameters:
+
+comment:
+  description: "Allows you to write a comment"
+  userlevel: Free
+  category: Flow   
+  parameters:
+    - name: Comment
+      label: "Comment:"
+      editor: text
+      advanced: False
+
+callable place holder:
+  description: ""
+  userlevel: Free
+  category: Null   
+  parameters:
+
+page rank:
+  description: "Looks up the page rank for the given url."
+  userlevel: Experimental
+  category: Null   
+  parameters:
+    - name: URL
+      label: "URL:"
+      editor: text
+      advanced: False
+
+backlinks:
+  description: "Looks up the number of backlinks for a given url."
+  userlevel: Experimental
+  category: Null   
+  parameters:
+    - name: Url
+      label: "Enter a url:"
+      editor: text
+      advanced: False
+
+suggest keywords:
+  description: "Looks up suggested keywords based on the given keyword."
+  userlevel: Experimental
+  category: Null   
+  parameters:
+    - name: Keyword
+      label: "Enter a keyword:"
+      editor: text
+      advanced: False
+
+related keywords:
+  description: "Looks up related keywords based on the given keyword."
+  userlevel: Experimental
+  category: Null   
+  parameters:
+    - name: Keyword
+      label: "Enter a keyword:"
+      editor: text
+      advanced: False
+
+attribute:
+  description: ""
+  userlevel: Free
+  category: Null   
+  parameters:
+
+attribute id list:
+  description: ""
+  userlevel: Free
+  category: Null   
+  parameters:
+
+attribute value list:
+  description: ""
+  userlevel: Free
+  category: Null   
+  parameters:
+
+attribute condition:
+  description: ""
+  userlevel: Free
+  category: Null   
+  parameters:
+
+special attribute:
+  description: ""
+  userlevel: Free
+  category: Null   
+  parameters:
+
+condition:
+  description: ""
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Left
+      label: "Enter the left side value:"
+      editor: text
+      advanced: False
+    - name: Right
+      label: "Enter the right side value:"
+      editor: text
+      advanced: False
+
+comparison:
+  description: ""
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Left
+      label: "Enter the left side value:"
+      editor: text
+      advanced: False
+    - name: Right
+      label: "Enter the right side value:"
+      editor: text
+      advanced: False
+
+save to file:
+  description: "Saves text, lists, or tables to a file."
+  userlevel: Free
+  category: System   
+  parameters:
+    - name: File
+      label: "Save As:"
+      editor: save file
+      advanced: False
+    - name: Content
+      label: "Content To Save:"
+      editor: text
+      advanced: False
+
+rename file:
+  description: "Renames a file"
+  userlevel: Free
+  category: System   
+  parameters:
+    - name: File
+      label: "File To Rename:"
+      editor: open file
+      advanced: False
+    - name: NewName
+      label: "New File Name:"
+      editor: text
+      advanced: False
+
+move file:
+  description: "Moves a file to a new location"
+  userlevel: Free
+  category: System   
+  parameters:
+    - name: File
+      label: "File To Move:"
+      editor: open file
+      advanced: False
+    - name: Location
+      label: "New Location:"
+      editor: open folder
+      advanced: False
+
+delete file:
+  description: "Deletes a file"
+  userlevel: Free
+  category: System   
+  parameters:
+    - name: File
+      label: "File To Delete:"
+      editor: open file
+      advanced: False
+
+copy file:
+  description: "Copies a file to a new location"
+  userlevel: Free
+  category: System   
+  parameters:
+    - name: File
+      label: "File To Copy:"
+      editor: open file
+      advanced: False
+    - name: CopyTo
+      label: "Copy To Location:"
+      editor: open folder
+      advanced: False
+
+rename folder:
+  description: "Renames a Folder"
+  userlevel: Free
+  category: System   
+  parameters:
+    - name: Folder
+      label: "Folder To Rename:"
+      editor: open folder
+      advanced: False
+    - name: NewName
+      label: "New Folder Name:"
+      editor: text
+      advanced: False
+
+move folder:
+  description: "Moves a folder to a new location"
+  userlevel: Free
+  category: System   
+  parameters:
+    - name: Folder
+      label: "Folder To Move:"
+      editor: open folder
+      advanced: False
+    - name: Location
+      label: "New Location:"
+      editor: open folder
+      advanced: False
+
+delete folder:
+  description: "Deletes a folder"
+  userlevel: Free
+  category: System   
+  parameters:
+    - name: Folder
+      label: "Folder to Delete:"
+      editor: open folder
+      advanced: False
+
+create folder:
+  description: "Creates a new folder"
+  userlevel: Free
+  category: System   
+  parameters:
+    - name: FolderLocation
+      label: "New Folder Location:"
+      editor: open folder
+      advanced: False
+    - name: NewFolderName
+      label: "New Folder Name:"
+      editor: text
+      advanced: False
+
+copy folder:
+  description: "Copies a folder to a new location"
+  userlevel: Free
+  category: System   
+  parameters:
+    - name: Folder
+      label: "Folder To Copy:"
+      editor: open folder
+      advanced: False
+    - name: CopyTo
+      label: "Copy To Location:"
+      editor: open folder
+      advanced: False
+
+append to file:
+  description: "Appends text to the start or end of a file"
+  userlevel: Free
+  category: System   
+  parameters:
+    - name: File
+      label: "File To Append To:"
+      editor: open file
+      advanced: False
+    - name: Text
+      label: "Text To Append:"
+      editor: text
+      advanced: False
+    - name: WhereToAppend
+      label: "Where To Append:"
+      editor: list box
+      advanced: False
+      items:
+        - End
+        - Beginning
+
+get files:
+  description: "Returns a list of all files in a given directory"
+  userlevel: Professional
+  category: Null   
+  parameters:
+    - name: Folder
+      label: "Folder To Search:"
+      editor: open folder
+      advanced: False
+    - name: IncludePath
+      label: "Include Path:"
+      editor: list box
+      advanced: False
+      items:
+        - Yes
+        - No
+
+file exists:
+  description: "Returns whether or not a file exists."
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: File
+      label: "File To Check:"
+      editor: open file
+      advanced: False
+
+folder exists:
+  description: "Returns whether or not a folder exists."
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Folder
+      label: "Folder To Check:"
+      editor: open folder
+      advanced: False
+
+special folder:
+  description: "Returns the path to a special system folder"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: SpecialFolder
+      label: "Special Folder:"
+      editor: list box
+      advanced: False
+      items:
+        - Application
+        - Application Data
+        - UBot Plugins
+        - Desktop
+        - Favorites
+        - My Documents
+        - My Music
+        - My Pictures
+        - My Videos
+        - Program Files
+        - Startup
+        - System
+
+run python:
+  description: "Runs Python code."
+  userlevel: Free
+  category: Developer   
+  parameters:
+    - name: Python
+      label: "Python:"
+      editor: code
+      advanced: False
+
+run python with result:
+  description: "Runs Python code and returns a result."
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Python
+      label: "Python:"
+      editor: code
+      advanced: False
+
+python:
+  description: "Runs Python code."
+  userlevel: Free
+  category: Developer   
+  parameters:
+    - name: ModuleName
+      label: "What would you like to name this module?"
+      editor: text
+      advanced: False
+    - name: Python
+      label: "Python:"
+      editor: code
+      advanced: False
+
+python result:
+  description: "Runs Python code and returns a result."
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: ModuleName
+      label: "What would you like to name this module?"
+      editor: text
+      advanced: False
+    - name: Python
+      label: "Python:"
+      editor: code
+      advanced: False
+
+compile bot:
+  description: "Compiles the current bot."
+  userlevel: Admin
+  category: Developer   
+  parameters:
+    - name: File
+      label: "File:"
+      editor: save file
+      advanced: False
+
+license server working:
+  description: "Returns true if license server is working."
+  userlevel: Admin
+  category: Null   
+  parameters:
+
+init_stock_engine:
+  description: "Set up the stock engine with user defined parameters"
+  userlevel: Free
+  category: Trade   
+  parameters:
+    - name: EngineType
+      label: "Type:"
+      editor: list box
+      advanced: False
+      items:
+        - Mock
+        - Simulation
+        - ETrade(not yet implemented)
+        - Ameritrade(not yet implemented)
+    - name: InitialCash
+      label: "Cash:"
+      editor: text
+      advanced: False
+    - name: InitialHoldings
+      label: "Format: SMBL=x,SMBL2=y..."
+      editor: text
+      advanced: False
+
+strategy:
+  description: "A trading strategy"
+  userlevel: Free
+  category: Trade   
+  parameters:
+    - name: Name
+      label: "Name:"
+      editor: text
+      advanced: False
+
+strategy runner:
+  description: "Execute a trading strategy with the given parameters."
+  userlevel: Free
+  category: Trade   
+  parameters:
+    - name: Name
+      label: "Name:"
+      editor: text
+      advanced: False
+    - name: Interval
+      label: "Delay between iterations in ms:"
+      editor: text
+      advanced: False
+
+simulation:
+  description: "Simulate a trading strategy"
+  userlevel: Free
+  category: Trade   
+  parameters:
+    - name: Name
+      label: "Name:"
+      editor: text
+      advanced: False
+    - name: StartDate
+      label: "Start Date yyyy_mm_dd:"
+      editor: text
+      advanced: False
+    - name: EndDate
+      label: "End Date yyyy_mm_dd:"
+      editor: text
+      advanced: False
+    - name: Stocks
+      label: "Stocks to simulate (comma delimited, no spaces):"
+      editor: text
+      advanced: False
+    - name: Runstyle
+      label: "Run Style"
+      editor: list box
+      advanced: False
+      items:
+        - Step
+        - Continuous
+
+trade condition:
+  description: "A trading condition"
+  userlevel: Free
+  category: Trade   
+  parameters:
+    - name: Condition
+      label: "Condition:"
+      editor: text
+      advanced: False
+
+trends up:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Data
+      label: "Data:"
+      editor: list
+      advanced: False
+
+trends down:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Data
+      label: "Data:"
+      editor: list
+      advanced: False
+
+moving average:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Data
+      label: "Data:"
+      editor: list
+      advanced: False
+
+macd:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Data
+      label: "Data:"
+      editor: list
+      advanced: False
+
+price change:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Data
+      label: "Data:"
+      editor: list
+      advanced: False
+
+standard deviation:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Data
+      label: "Data:"
+      editor: list
+      advanced: False
+
+covariance:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: FirstList
+      label: "First List:"
+      editor: list
+      advanced: False
+    - name: SecondList
+      label: "Second List:"
+      editor: list
+      advanced: False
+
+correlation coefficient:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: FirstList
+      label: "First List:"
+      editor: list
+      advanced: False
+    - name: SecondList
+      label: "Second List:"
+      editor: list
+      advanced: False
+
+company symbols:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+company names:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+price:
+  description: "Returns the current stock price of said stock"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Symbol
+      label: "Symbol:"
+      editor: text
+      advanced: False
+
+yahoo historical prices:
+  description: "Returns the historical prices from the yahoo historical finance api"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Symbol
+      label: "Symbol:"
+      editor: text
+      advanced: False
+    - name: StartDate
+      label: "Start Date yyyy_mm_dd:"
+      editor: text
+      advanced: False
+    - name: EndDate
+      label: "End Date yyyy_mm_dd:"
+      editor: text
+      advanced: False
+
+my portfolio:
+  description: "Returns the current stock price of said stock"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+my cash:
+  description: "Returns the current stock price of said stock"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+my total assets:
+  description: "Returns the current stock price of said stock"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+my buys:
+  description: "Returns the number of buy orders for the time period"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+my sells:
+  description: "Returns the number of sell orders for the time period"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+my profits:
+  description: "Returns the profits made in a given time period"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+my owned shares:
+  description: "Returns the number of shares owned of this symbol"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Symbol
+      label: "Symbol:"
+      editor: text
+      advanced: False
+
+volume:
+  description: "Returns the current stock volume of said stock"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Symbol
+      label: "Symbol:"
+      editor: text
+      advanced: False
+
+last n of list:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+    - name: Number
+      label: "How many?"
+      editor: text
+      advanced: False
+
+first n of list:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+    - name: Number
+      label: "How many?"
+      editor: text
+      advanced: False
+
+buy:
+  description: "Buy command"
+  userlevel: Free
+  category: Trade   
+  parameters:
+    - name: Symbol
+      label: "Symbol:"
+      editor: text
+      advanced: False
+    - name: Shares
+      label: "Shares:"
+      editor: text
+      advanced: False
+
+sell:
+  description: "Sell command"
+  userlevel: Free
+  category: Trade   
+  parameters:
+    - name: Symbol
+      label: "Symbol:"
+      editor: text
+      advanced: False
+    - name: Shares
+      label: "Shares:"
+      editor: text
+      advanced: False
+
+encrypt:
+  description: "Encrypts a value"
+  userlevel: Free
+  category:  "Encryption"  
+  parameters:
+    - name: Input
+      label: "Value to Encrypt"
+      editor: text
+      advanced: False
+    - name: Algorithm
+      label: "Cryptography Algorithm:"
+      editor: list box
+      advanced: False
+      items:
+        - base64
+        - md5
+        - sha1
+        - sha256
+
+decrypt:
+  description: "Decrypts a value"
+  userlevel: Free
+  category:  "Encryption"  
+  parameters:
+    - name: Input
+      label: "Value to Decrypt"
+      editor: text
+      advanced: False
+    - name: Algorithm
+      label: "Cryptography Algorithm:"
+      editor: list box
+      advanced: False
+      items:
+        - base64
+
+thread spawn:
+  description: "This command will spawn the specified number of threads, with the 'max concurrent' number of threads open at any given time."
+  userlevel: Professional
+  category: Flow   
+  parameters:
+    - name: Spawns
+      label: "Total Number of Spawns:"
+      editor: text
+      advanced: False
+    - name: Concurrent
+      label: "Max Concurrent:"
+      editor: text
+      advanced: False
+
+n seconds:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Number
+      label: "How many?"
+      editor: text
+      advanced: False
+    - name: TimeSpan
+      label: "Time Span:"
+      editor: list box
+      advanced: False
+      items:
+        - Milliseconds
+        - Seconds
+        - Minutes
+        - Hours
+        - Days
+        - Weeks
+        - Years
+
+n from now:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Interval
+      label: "How long from now?"
+      editor: text
+      advanced: False
+
+n ago:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Interval
+      label: "How long ago?"
+      editor: text
+      advanced: False
+
+now:
+  description: "Returns whether or not the specified text contains the search text"
+  userlevel: Free
+  category: Null   
+  parameters:
+
+alert:
+  description: "Displays an alert box to display a message to the user"
+  userlevel: Free
+  category: Flow   
+  parameters:
+    - name: Message
+      label: "Message:"
+      editor: text
+      advanced: False
+
+confirm:
+  description: "Displays a yes/no confirmation box that returns true if they choose Yes"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Message
+      label: "Message:"
+      editor: text
+      advanced: False
+
+prompt:
+  description: "Prompts the user to respond and returns the text they typed"
+  userlevel: Free
+  category: Null   
+  parameters:
+    - name: Message
+      label: "Message:"
+      editor: text
+      advanced: False
+
+chart:
+  description: "Creates a new chart"
+  userlevel: Free
+  category:  "Charting"  
+  parameters:
+    - name: Name
+      label: "Name:"
+      editor: text
+      advanced: False
+
+plot:
+  description: "Plots data on containing chart."
+  userlevel: Free
+  category:  "Charting"  
+  parameters:
+    - name: PlotType
+      label: "How should we plot this?"
+      editor: list box
+      advanced: False
+      items:
+        - Line Graph
+        - Bar Graph
+    - name: Data
+      label: "What data should we use?:"
+      editor: list
+      advanced: False
+
+plot candlestick:
+  description: "Plots data on containing chart in candlestick format."
+  userlevel: Free
+  category:  "Charting"  
+  parameters:
+    - name: Data
+      label: "What data should we use?:"
+      editor: table
+      advanced: False
+
+clear all data:
+  description: "Clears all variables, lists, and tables."
+  userlevel: Free
+  category: Data   
+  parameters:
+
+reverse text:
+  description: "Reverses text"
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to reverse:"
+      editor: text
+      advanced: False
+
+number format:
+  description: "Puts commas into a number to make it readable."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Number
+      label: "Number to format:"
+      editor: text
+      advanced: False
+
+levenshtein distance:
+  description: "Calculates Levenshtein distance between two strings."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text1
+      label: "First string:"
+      editor: text
+      advanced: False
+    - name: Text2
+      label: "Second string:"
+      editor: text
+      advanced: False
+
+clean text:
+  description: "Trim and replace multiple spaces with a single space."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to clean:"
+      editor: text
+      advanced: False
+
+character list:
+  description: "Returns a list of the individual characters in a string."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text:"
+      editor: text
+      advanced: False
+
+swap case:
+  description: "Returns a copy of the string in which all the case-based characters have had their case swapped."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text:"
+      editor: text
+      advanced: False
+
+count text:
+  description: "Counts the number of times a substring appears in the text."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to search in:"
+      editor: text
+      advanced: False
+    - name: SearchText
+      label: "Text to search for:"
+      editor: text
+      advanced: False
+
+escape html:
+  description: "Converts HTML special characters to their entity equivalents."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: HTML
+      label: "HTML to escape:"
+      editor: text
+      advanced: False
+
+unescape html:
+  description: "Converts entity characters to HTML equivalents."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: HTML
+      label: "HTML to unescape:"
+      editor: text
+      advanced: False
+
+is blank:
+  description: "Determines whether text is empty or contains only white space. Returns true or false."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to check:"
+      editor: text
+      advanced: False
+
+is number:
+  description: "Determines whether text is a number. Returns true or false."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to check:"
+      editor: text
+      advanced: False
+
+starts with:
+  description: "Checks whether the string begins with specified text. Returns true or false."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to check:"
+      editor: text
+      advanced: False
+    - name: Substring
+      label: "Substring to check with:"
+      editor: text
+      advanced: False
+
+ends with:
+  description: "Checks whether the string ends with specified text. Returns true or false."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to check:"
+      editor: text
+      advanced: False
+    - name: Substring
+      label: "Substring to check with:"
+      editor: text
+      advanced: False
+
+camelize:
+  description: "Converts underscored or dasherized string to a camelized one. Begins with a lower case letter unless it starts with an underscore, dash or an upper case letter."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to camelize:"
+      editor: text
+      advanced: False
+
+classify:
+  description: "Converts string to camelized class name. First letter is always upper case"
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to classify:"
+      editor: text
+      advanced: False
+
+underscored:
+  description: "Converts a camelized or dasherized string into an underscored one"
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to underscore:"
+      editor: text
+      advanced: False
+
+dasherize:
+  description: "Converts a underscored or camelized string into an dasherized one"
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to dasherize:"
+      editor: text
+      advanced: False
+
+humanize:
+  description: "Converts an underscored, camelized, or dasherized string into a humanized one. Also removes beginning and ending whitespace, and removes the postfix '_id'."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to humanize:"
+      editor: text
+      advanced: False
+
+truncate:
+  description: "Cuts text at specified location, replacing it with ""..."""
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to truncate:"
+      editor: text
+      advanced: False
+    - name: Location
+      label: "Location:"
+      editor: text
+      advanced: False
+
+prune:
+  description: "Elegant version of truncate. Makes sure the pruned string does not exceed the original length. Avoid half-chopped words when truncating."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to prune:"
+      editor: text
+      advanced: False
+    - name: Location
+      label: "Location:"
+      editor: text
+      advanced: False
+
+strip tags:
+  description: "Removes all html tags from string."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to strip:"
+      editor: text
+      advanced: False
+
+words:
+  description: "Returns a list of the words in specified text."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text:"
+      editor: text
+      advanced: False
+
+to sentence:
+  description: "Join an array into a human readable sentence."
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: WordList
+      label: "Word List:"
+      editor: list
+      advanced: False
+
+repeat text:
+  description: "Repeats string specified number of times"
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to repeat:"
+      editor: text
+      advanced: False
+    - name: Number
+      label: "Number of times to repeat:"
+      editor: text
+      advanced: False
+
+surround text:
+  description: "Surrounds text with other text"
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to surround:"
+      editor: text
+      advanced: False
+    - name: SurroundText
+      label: "Text to surround with:"
+      editor: text
+      advanced: False
+
+slugify:
+  description: "Transform text into an ascii slug which can be used in safely in URLs. Replaces whitespaces, accentuated, and special characters with a dash. Limited set of non-ascii characters are transformed to similar versions in the ascii character set such as ä to a"
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text to slugify:"
+      editor: text
+      advanced: False
+
+word count:
+  description: "Returns the number of words in text"
+  userlevel: Free
+  category:  "Advanced Text"  
+  parameters:
+    - name: Text
+      label: "Text:"
+      editor: text
+      advanced: False
+
+with each:
+  description: "With each item in the list, run these commands."
+  userlevel: Free
+  category:  "Advanced List"  
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+    - name: Variable
+      label: "Variable:"
+      editor: variable
+      advanced: False
+
+remove text from list:
+  description: "Removes a list item according to its contents."
+  userlevel: Free
+  category:  "Advanced List"  
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+    - name: Text
+      label: "Text to remove:"
+      editor: text
+      advanced: False
+    - name: Count
+      label: "First item or all?"
+      editor: list box
+      advanced: True
+      items:
+        - First
+        - All
+
+replace list item:
+  description: "Replaces a list item with a new item."
+  userlevel: Free
+  category:  "Advanced List"  
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+    - name: Position
+      label: "Position:"
+      editor: text
+      advanced: False
+    - name: NewItem
+      label: "New Item:"
+      editor: text
+      advanced: False
+    - name: Scope
+      label: "List Scope:"
+      editor: list box
+      advanced: True
+      items:
+        - Global
+        - Local
+
+enqueue:
+  description: "Adds an item to the end of a list."
+  userlevel: Free
+  category:  "Advanced List"  
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+    - name: Item
+      label: "Item to enqueue:"
+      editor: text
+      advanced: False
+    - name: Scope
+      label: "List Scope:"
+      editor: list box
+      advanced: True
+      items:
+        - Global
+        - Local
+
+dequeue:
+  description: "Removes and returns first item in a list."
+  userlevel: Free
+  category:  "Advanced List"  
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+
+push:
+  description: "Inserts an item into the beginning of a list."
+  userlevel: Free
+  category:  "Advanced List"  
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+    - name: Item
+      label: "Item to push:"
+      editor: text
+      advanced: False
+    - name: Scope
+      label: "List Scope:"
+      editor: list box
+      advanced: True
+      items:
+        - Global
+        - Local
+
+pop:
+  description: "Removes and returns the first list item."
+  userlevel: Free
+  category:  "Advanced List"  
+  parameters:
+    - name: List
+      label: "List:"
+      editor: list
+      advanced: False
+
+with every table cell:
+  description: "Loops through every cell in a table."
+  userlevel: Free
+  category:  "Advanced Table"  
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+    - name: Variable
+      label: "Variable:"
+      editor: variable
+      advanced: False
+
+with every cell in row:
+  description: "Loops through every cell in a table row."
+  userlevel: Free
+  category:  "Advanced Table"  
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+    - name: Row
+      label: "Row:"
+      editor: text
+      advanced: False
+    - name: Variable
+      label: "Variable:"
+      editor: variable
+      advanced: False
+
+with every cell in column:
+  description: "Loops through every cell in a table column."
+  userlevel: Free
+  category:  "Advanced Table"  
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+    - name: Column
+      label: "Column:"
+      editor: text
+      advanced: False
+    - name: Variable
+      label: "Variable:"
+      editor: variable
+      advanced: False
+
+create table from excel:
+  description: "Creates a table from an excel file."
+  userlevel: Free
+  category:  "Advanced Table"  
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+    - name: File
+      label: "Excel file:"
+      editor: open file
+      advanced: False
+
+create table from text:
+  description: "Creates a table from text."
+  userlevel: Free
+  category:  "Advanced Table"  
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+    - name: Text
+      label: "Text:"
+      editor: text
+      advanced: False
+
+html from table:
+  description: "Returns an html table."
+  userlevel: Free
+  category:  "Advanced Table"  
+  parameters:
+    - name: Table
+      label: "Table:"
+      editor: table
+      advanced: False
+
+absolute value:
+  description: "Returns the absolute value."
+  userlevel: Free
+  category:  "Extended Math"  
+  parameters:
+    - name: Number
+      label: "Number:"
+      editor: text
+      advanced: False
+
+ceiling:
+  description: "Returns the next whole integer."
+  userlevel: Free
+  category:  "Extended Math"  
+  parameters:
+    - name: Number
+      label: "Number:"
+      editor: text
+      advanced: False
+
+floor:
+  description: "Returns the previous whole integer."
+  userlevel: Free
+  category:  "Extended Math"  
+  parameters:
+    - name: Number
+      label: "Number:"
+      editor: text
+      advanced: False
+
+tan:
+  description: "Returns the tangent."
+  userlevel: Free
+  category:  "Extended Math"  
+  parameters:
+    - name: Number
+      label: "Number:"
+      editor: text
+      advanced: False
+
+cos:
+  description: "Returns the cosine."
+  userlevel: Free
+  category:  "Extended Math"  
+  parameters:
+    - name: Number
+      label: "Number:"
+      editor: text
+      advanced: False
+
+sin:
+  description: "Returns the sine"
+  userlevel: Free
+  category:  "Extended Math"  
+  parameters:
+    - name: Number
+      label: "Number:"
+      editor: text
+      advanced: False
+
+division remainder:
+  description: "Returns the remainder of a division."
+  userlevel: Free
+  category:  "Extended Math"  
+  parameters:
+    - name: Dividend
+      label: "Dividend:"
+      editor: text
+      advanced: False
+    - name: Divisor
+      label: "Divisor:"
+      editor: text
+      advanced: False
+
+log:
+  description: "Returns a logarithm."
+  userlevel: Free
+  category:  "Extended Math"  
+  parameters:
+    - name: Number
+      label: "Number:"
+      editor: text
+      advanced: False
+
+min:
+  description: "Returns the smaller of two numbers."
+  userlevel: Free
+  category:  "Extended Math"  
+  parameters:
+    - name: Number1
+      label: "Number 1:"
+      editor: text
+      advanced: False
+    - name: Number2
+      label: "Number 2:"
+      editor: text
+      advanced: False
+
+max:
+  description: "Returns the larger of two numbers."
+  userlevel: Free
+  category:  "Extended Math"  
+  parameters:
+    - name: Number1
+      label: "Number 1:"
+      editor: text
+      advanced: False
+    - name: Number2
+      label: "Number 2:"
+      editor: text
+      advanced: False
+
+square root:
+  description: "Returns the square root."
+  userlevel: Free
+  category:  "Extended Math"  
+  parameters:
+    - name: Number
+      label: "Number:"
+      editor: text
+      advanced: False
+
+round:
+  description: "Returns a rounded integer."
+  userlevel: Free
+  category:  "Extended Math"  
+  parameters:
+    - name: Number
+      label: "Number:"
+      editor: text
+      advanced: False
+
+zip folder:
+  description: "Creates a zip file from a folder."
+  userlevel: Free
+  category:  "Compression"  
+  parameters:
+    - name: Folder
+      label: "Folder:"
+      editor: open folder
+      advanced: False
+    - name: FileName
+      label: "File Name:"
+      editor: open folder
+      advanced: False
+
+unzip file:
+  description: "Unzips a file to a folder."
+  userlevel: Free
+  category:  "Compression"  
+  parameters:
+    - name: File
+      label: "File to unzip:"
+      editor: open file
+      advanced: False
+    - name: Folder
+      label: "Folder:"
+      editor: open folder
+      advanced: False
+
+add file to zip:
+  description: "Adds a file to a zip."
+  userlevel: Free
+  category:  "Compression"  
+  parameters:
+    - name: zfile
+      label: "Zip File:"
+      editor: open file
+      advanced: False
+    - name: File
+      label: "File to add:"
+      editor: open file
+      advanced: False
+
+extract file from zip:
+  description: "Extracts a file from a zip."
+  userlevel: Free
+  category:  "Compression"  
+  parameters:
+    - name: zfile
+      label: "Zip File:"
+      editor: open file
+      advanced: False
+    - name: FileName
+      label: "File Name:"
+      editor: text
+      advanced: False
+    - name: Folder
+      label: "Folder to extract to:"
+      editor: open folder
+      advanced: False
+
+files in zip:
+  description: "Returns the file names in a zip."
+  userlevel: Free
+  category:  "Compression"  
+  parameters:
+    - name: File
+      label: "File:"
+      editor: open file
+      advanced: False
+
+set cookie:
+  description: "Sets a cookie."
+  userlevel: Free
+  category:  "Cookie Control"  
+  parameters:
+    - name: Name
+      label: "Name:"
+      editor: text
+      advanced: False
+    - name: CookieValue
+      label: "Value:"
+      editor: text
+      advanced: False
+
+remove cookie:
+  description: "Removes a cookie."
+  userlevel: Free
+  category:  "Cookie Control"  
+  parameters:
+    - name: Name
+      label: "Name:"
+      editor: text
+      advanced: False
+
+get cookie:
+  description: "Returns a cookie."
+  userlevel: Free
+  category:  "Cookie Control"  
+  parameters:
+    - name: Name
+      label: "Name:"
+      editor: text
+      advanced: False
+
+get all cookies:
+  description: "Returns a table with all cookies."
+  userlevel: Free
+  category:  "Cookie Control"  
+  parameters:
+
+set header:
+  description: "Sets a header for future browser requests."
+  userlevel: Professional
+  category: BrowserSetting   
+  parameters:
+    - name: Name
+      label: "Name of the header:"
+      editor: text
+      advanced: False
+    - name: HeaderValue
+      label: "Desired value of the header:"
+      editor: text
+      advanced: False
+
+reset headers:
+  description: "Resets all headers to their defaults."
+  userlevel: Professional
+  category: BrowserSetting   
+  parameters:
+
+set headless browser:
+  description: "Turns headless browsing on or off."
+  userlevel: Professional
+  category: BrowserSetting   
+  parameters:
+    - name: State
+      label: "On or Off?"
+      editor: list box
+      advanced: False
+      items:
+        - On
+        - Off
+
+reset browser:
+  description: "Restarts the browser process."
+  userlevel: Standard
+  category: Browser   
+  parameters:
+

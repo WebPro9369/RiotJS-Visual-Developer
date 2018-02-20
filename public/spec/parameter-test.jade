@@ -1,0 +1,24 @@
+parameter(name="param name" value="param value")
+
+script
+  :coffee-script
+    describe 'parameter', () ->
+
+      beforeAll (done) ->
+        riot.compile ->
+          riot.mount("parameter")
+          done()
+      afterAll ->
+        $("#sandbox").empty()
+
+      it 'should mount', ->
+        element = $("parameter")
+        expect(element.children().length).toBeGreaterThan(0)
+
+      it 'should have the correct name and value', () ->
+        name = $("parameter").find("label").text()
+        value = $("parameter").find(".string-box").text()
+        expect(name).toBe("param name")
+        expect(value).toBe("param value")
+
+      it 'should switch into edit mode', () ->

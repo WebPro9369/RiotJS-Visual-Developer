@@ -1,0 +1,92 @@
+bloqTypes:
+  command:
+    bloqType:   normal-bloq
+    header:     "#2962ff"
+    background: "#e8eaf6"
+
+  function:
+    bloqType:   normal-bloq
+    header:     "#00b540"
+    background: "#ecfff3"
+
+  if:
+    bloqType:   ifbase-bloq
+    header:     "#9c08e2"
+    background: "#f7ebff"
+
+  if inner:
+    bloqType:   ifinner-bloq
+    header:     "#9c08e2"
+    background: "#f7ebff"
+    showDelete: true
+
+  then:
+    bloqType:   ifinner-bloq
+    header:     "#9c08e2"
+    background: "#f7ebff"
+    showDelete: false
+
+  operator:
+    bloqType:   operator-bloq
+    header:     "#2faaf6"
+
+  operator:
+    bloqType:   operator-bloq
+    header:     "#2faaf6"
+
+  operator only:
+    bloqType:   operator-bloq
+    header:     "#2faaf6"
+    side:       none
+
+  operator left:
+    bloqType:   operator-bloq
+    header:     "#2faaf6"
+    side:       left
+
+  operator right:
+    bloqType:   operator-bloq
+    header:     "#2faaf6"
+    side:       right
+
+  variable:
+    bloqType:   compact-bloq
+    header:     "#6b29ff"
+
+  list:
+    bloqType:   compact-bloq
+    header:     "#006f57"
+
+parameterEditors:
+  text:
+    editor: text-editor
+    background: "#ef9a9a"
+
+  open file:
+    editor: file-editor
+    background: "#ef9a9a"
+    dialog: open file
+
+  open folder:
+    editor: file-editor
+    background: "#ef9a9a"
+    dialog: open folder
+
+  save file:
+    editor: file-editor
+    background: "#ef9a9a"
+    dialog: save file
+
+  drop down:
+    editor: drop-down-editor
+    background: "#ef9a9a"
+
+  variable:
+    editor: drop-down-editor
+    background: "#e1d4ff"
+    store:  variables
+  
+  lists:
+    editor: drop-down-editor
+    background: "#e1d4ff"
+    store:  lists

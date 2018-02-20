@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "loadScript.js",
+  "sourceRoot": "..\\..",
+  "sources": [
+    "public\\javascripts\\loadScript.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;AAAA"
+}

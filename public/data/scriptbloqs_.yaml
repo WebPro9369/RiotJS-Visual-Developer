@@ -1,0 +1,137 @@
+Flow:
+  repeat:
+    description: "Repeats the contained bloqs a specified number of times"
+    category: Flow   
+    parameters:
+      - name: repetitions
+        label: "Number of repetitions:"
+        editor: text
+        default: 10
+    hasChildren: true
+    output: |
+              for x in range(0, @repetitions):
+                @children
+
+  define:
+      description: "Defines a function"
+      title: define @name
+      category: Flow   
+      parameters:
+        - name: name
+          label: "Name:"
+          editor: define
+          quotes: false
+        - name: params
+          label: "Parameters:"
+          editor: parameter list  
+      toolboxData:
+        type: function
+        name: @name
+        add: true
+        remove: true
+      hasChildren: true
+      output: |
+                def @name(@params):
+                  @children
+  import:
+      description: "Import another script."
+      hide: true
+      category: Flow   
+      parameters:
+        - name: file
+          label: "Select a file to import:"
+          editor: open file
+          advanced: false
+
+  for:
+    hide: true
+    parameters:
+      - name: index
+        label: "index"
+        editor: variable
+      - name: sequence
+        label: sequence
+        editor: text
+    hasChildren: true
+    output: for
+
+Data Functions:
+  set:
+      category: Data Functions
+      parameters:
+        - name: variable
+          label: Enter a variable name
+          editor: variable
+          default: myVariable
+
+        - name: value
+          label: Enter a value
+          editor: text
+          default: ""
+          placeholder: '2 or "hello" or drag a bloq'
+      toolboxData:
+        type: variable
+        name: @variable
+      output: "@variable = @value"
+  increment:
+      parameters:
+        - name: variable
+          label: Enter a Variable
+          editor: variable
+          default: myVariable
+
+      output: "@variable += 1"
+  decrement:
+      parameters:
+        - name: variable
+          label: Enter a Variable
+          editor: variable
+          default: myVariable
+      output: "@variable -= 1"
+
+Text Functions:
+  trim:
+    description: "Returns the text with all leading or trailing blank spaces removed"
+    category: Text Functions   
+    parameters:
+      - name: text
+        label: "Text:"
+        editor: text
+
+  replace:
+    description: "Returns the original text with all instances of the search text replaced by the replace text"
+    category: Text Functions   
+    parameters:
+      - name: original
+        label: "Original Text"
+        editor: text
+        
+      - name: search
+        label: "Search Text"
+        editor: text
+        
+      - name: replace
+        label: "Replace Text"
+        editor: text
+
+  substring:
+    description: "Returns a specified part of an original string"
+    category: Text Functions   
+    parameters:
+      - name: text
+        label: "Original Text:"
+        editor: text
+        
+      - name: startPoint
+        label: "Starting Point:"
+        editor: text
+        
+      - name: totalLength
+        label: "Number Of Characters:"
+        editor: text
+  print:
+    parameters:
+      - name: text
+        label: "text"
+        editor: text
+    output: print(@text)
